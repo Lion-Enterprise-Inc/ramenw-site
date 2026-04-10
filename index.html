@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RAMEN W ～庄の×ど・みそ～｜福井市のラーメン</title>
+<meta name="description" content="福井市のラーメン店 RAMEN W。東京の名店「麺や庄の」「ど・みそ」の味を福井で。">
+<link rel="canonical" href="https://ramenw.jp/">
+<meta property="og:title" content="RAMEN W ～庄の×ど・みそ～｜福井市のラーメン">
+<meta property="og:description" content="東京の2大名店の味が、なぜか福井にある。庄の×ど・みそ。">
+<meta property="og:type" content="restaurant">
+<meta property="og:url" content="https://ramenw.jp/">
+<meta property="og:image" content="https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=1200&q=80&fit=crop">
+<meta property="og:site_name" content="RAMEN W">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Noto+Serif+JP:wght@700;900&family=Zen+Antique+Soft&family=Zen+Old+Mincho:wght@700;900&display=swap');
+
+  :root {
+    --black: #0e0e0e;
+    --dark: #151515;
+    --red: #c41e2e;
+    --red-dark: #9a1622;
+    --gold: #b8942e;
+    --cream: #f8f5ef;
+    --light: #f2eeE6;
+    --white: #fff;
+    --text: #2a2a2a;
+    --text-sub: #777;
+    --border: rgba(0,0,0,0.08);
+  }
+  *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth;overflow-x:hidden}
+  body{font-family:'Noto Sans JP',sans-serif;background:var(--cream);color:var(--text);line-height:1.8;overflow-x:hidden}
+
+  /* HEADER */
+  .hd{position:fixed;top:0;width:100%;z-index:100;height:56px;display:flex;align-items:center;justify-content:space-between;padding:0 24px;transition:background 0.4s}
+  .hd.scrolled{background:rgba(248,245,239,0.97);backdrop-filter:blur(6px)}
+  .hd.scrolled .hd-logo{color:var(--text)}
+  .hd.scrolled .nav a{color:rgba(0,0,0,0.45)}
+  .hd.scrolled .nav a:hover{color:var(--text)}
+  .hd.scrolled .hb i{background:var(--text)}
+  .hd-logo{font-family:'Zen Antique Soft',serif;font-size:20px;color:var(--white);text-decoration:none;letter-spacing:3px}
+  .hd-logo span{color:var(--red);font-size:24px}
+  .nav{display:flex;align-items:center;gap:2px}
+  .nav a{color:rgba(255,255,255,0.5);text-decoration:none;font-size:11px;font-weight:500;padding:5px 10px;letter-spacing:1px;transition:color 0.2s}
+  .nav a:hover{color:var(--white)}
+  .nav-sw{display:flex;gap:2px;background:rgba(255,255,255,0.07);border-radius:4px;padding:2px;margin-right:6px}
+  .nav-sw a{font-size:10px;padding:4px 10px;border-radius:3px;letter-spacing:0}
+  .nav-sw a.on{background:var(--red);color:var(--white)}
+  .nav-rsv{background:var(--red)!important;color:var(--white)!important;border-radius:3px;margin-left:6px}
+
+  .hb{display:none;background:none;border:none;cursor:pointer;width:40px;height:40px;position:relative;z-index:120}
+  .hb i{display:block;width:20px;height:2px;background:var(--white);position:absolute;left:10px;transition:all 0.3s}
+  .hb i:nth-child(1){top:13px}.hb i:nth-child(2){top:19px}.hb i:nth-child(3){top:25px}
+  .hb.on i:nth-child(1){top:19px;transform:rotate(45deg)}.hb.on i:nth-child(2){opacity:0}.hb.on i:nth-child(3){top:19px;transform:rotate(-45deg)}
+  .dr{display:none;position:fixed;inset:0;z-index:110;background:rgba(14,14,14,0.97);flex-direction:column;align-items:center;justify-content:center;gap:10px}
+  .dr.open{display:flex}
+  .dr a{color:rgba(255,255,255,0.75);text-decoration:none;font-size:16px;letter-spacing:2px;padding:10px 20px}
+  .dr-sw{display:flex;gap:6px;background:rgba(255,255,255,0.07);border-radius:6px;padding:3px;margin-bottom:12px}
+  .dr-sw a{font-size:14px;padding:7px 18px;border-radius:4px}
+  .dr-sw a.on{background:var(--red);color:var(--white)}
+  .dr-rsv{margin-top:12px;background:var(--red);color:var(--white)!important;padding:12px 36px;border-radius:4px}
+
+  /* ===== SUMI-E BACKGROUNDS ===== */
+  .sumi-e{
+    position:absolute;pointer-events:none;z-index:0;
+    background-repeat:no-repeat;background-size:contain;
+  }
+  /* 左列: 庄の = 魚(上) + 豚骨(下) */
+  .sumi-fish{
+    left:0%;top:2%;width:32%;height:42%;opacity:0.08;
+    background-image:url('images/sumi-fish.png');background-position:left top;
+  }
+  .sumi-bone{
+    left:3%;bottom:18%;width:28%;height:38%;opacity:0.07;
+    background-image:url('images/sumi-bone.png');background-position:left bottom;
+  }
+  /* 右列: ど・みそ = 味噌(上) + 蟹(下) */
+  .sumi-miso{
+    right:0%;top:18%;width:28%;height:42%;opacity:0.08;
+    background-image:url('images/sumi-miso.png');background-position:right top;
+  }
+  .sumi-crab{
+    right:3%;bottom:5%;width:32%;height:42%;opacity:0.07;
+    background-image:url('images/sumi-crab.png');background-position:right bottom;
+  }
+  /* メニュー用 */
+  .sumi-menu-bone{
+    right:-2%;top:10%;width:22%;height:40%;opacity:0.06;
+    background-image:url('images/sumi-bone.png');background-position:right center;
+  }
+  .sumi-menu-fish{
+    left:-2%;bottom:5%;width:22%;height:40%;opacity:0.06;
+    background-image:url('images/sumi-fish.png');background-position:left center;
+  }
+  .s-access{background:var(--cream)}
+
+  /* ===== HERO: 2分割 ===== */
+  .hero{height:100vh;min-height:640px;display:grid;grid-template-columns:1fr 1fr;position:relative}
+  .hero-half{position:relative;overflow:hidden;display:flex;align-items:flex-end}
+  .hero-half-img{position:absolute;inset:0;background-size:cover;background-position:center}
+  .hero-slide-img{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transition:opacity 1.5s ease}
+  .hero-slide-img.on{opacity:1}
+  .hero-half-dim{position:absolute;inset:0}
+  .hero-left .hero-half-dim{background:linear-gradient(to right,rgba(14,14,14,0.7) 0%,rgba(14,14,14,0.2) 60%),linear-gradient(to top,rgba(14,14,14,0.8) 0%,transparent 50%)}
+  .hero-right .hero-half-dim{background:linear-gradient(to left,rgba(14,14,14,0.7) 0%,rgba(14,14,14,0.2) 60%),linear-gradient(to top,rgba(14,14,14,0.8) 0%,transparent 50%)}
+  .hero-half{display:flex;align-items:flex-end;justify-content:center}
+  .hero-half-c{position:relative;z-index:2;padding:40px 32px;text-align:left}
+  .hero-brand{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:rgba(255,255,255,0.8);font-weight:700;margin-bottom:6px;text-shadow:1px 1px 8px rgba(0,0,0,0.6)}
+  .hero-name{font-family:'Noto Serif JP',serif;font-size:32px;font-weight:900;letter-spacing:2px;line-height:1.3;color:var(--white);text-shadow:1px 1px 12px rgba(0,0,0,0.8)}
+  .hero-left .hero-name{font-family:'Noto Serif JP',serif}
+  .hero-right .hero-name{font-family:'Zen Old Mincho',serif}
+  .hero-desc{font-size:12px;color:rgba(255,255,255,0.7);margin-top:8px;line-height:1.9;text-shadow:1px 1px 8px rgba(0,0,0,0.6)}
+  .hero-price{font-size:20px;font-weight:900;margin-top:10px;color:var(--white);text-shadow:1px 1px 8px rgba(0,0,0,0.6)}
+
+  .hero-center{
+    position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+    z-index:10;text-align:center;pointer-events:none;
+  }
+  .hero-center-logo{
+    font-family:'Zen Antique Soft',serif;font-size:64px;color:var(--white);
+    letter-spacing:8px;text-shadow:0 4px 40px rgba(0,0,0,0.8);
+    line-height:1;
+  }
+  .hero-center-logo .w{color:var(--red);font-size:78px}
+  .hero-center-store{
+    font-family:'Noto Serif JP',serif;font-size:28px;font-weight:900;
+    letter-spacing:6px;margin-top:12px;color:var(--white);
+    text-shadow:0 2px 20px rgba(0,0,0,0.7);
+  }
+  .hero-center-store .shono{font-family:'Noto Serif JP',serif;font-weight:900}
+  .hero-center-store .domiso{font-family:'Zen Old Mincho',serif;font-weight:900}
+  .hero-center-store .x{color:var(--white);font-size:20px;margin:0 8px;opacity:0.5}
+  .hero-center-sub{font-size:11px;color:rgba(255,255,255,0.4);letter-spacing:4px;margin-top:12px}
+  .hero-divider{
+    position:absolute;top:0;bottom:0;left:50%;width:2px;z-index:5;
+    background:linear-gradient(to bottom,transparent 10%,rgba(196,30,46,0.5) 30%,rgba(196,30,46,0.5) 70%,transparent 90%);
+  }
+  .hero-scroll{position:absolute;bottom:16px;left:50%;transform:translateX(-50%);z-index:10;color:rgba(255,255,255,0.2);font-size:9px;letter-spacing:3px}
+  .hero-scroll::after{content:'';display:block;width:1px;height:24px;background:rgba(255,255,255,0.12);margin:4px auto 0}
+
+  /* ===== KODAWARI: 2分割対比 ===== */
+  .kd{background:var(--cream)}
+  .kd-header{text-align:center;padding-bottom:48px}
+  .kd-pair{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--border)}
+  .kd-cell{padding:48px 40px;position:relative}
+  .kd-cell:first-child{border-right:1px solid var(--border)}
+  .kd-cell-num{font-size:10px;color:var(--red);letter-spacing:3px;font-weight:700;margin-bottom:6px}
+  .kd-cell-title{font-family:'Noto Serif JP',serif;font-size:20px;font-weight:900;margin-bottom:10px;color:var(--text)}
+  .kd-cell-text{font-size:13px;color:var(--text-sub);line-height:2.2}
+  .kd-cell-img{margin-top:20px;border-radius:4px;overflow:hidden;aspect-ratio:16/10}
+  .kd-cell-img img{width:100%;height:100%;object-fit:cover;display:block}
+
+  /* ===== ORIGINALS: 3分割 ===== */
+  .og{background:var(--black);color:var(--white)}
+  .og .s-label{color:var(--red)}
+  .og .s-title{color:var(--white)}
+  .og-header{text-align:center;padding-bottom:40px}
+  .og-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px}
+  .og-card{position:relative;overflow:hidden;aspect-ratio:3/4}
+  .og-card img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.6s}
+  .og-card:hover img{transform:scale(1.04)}
+  .og-card-body{
+    position:absolute;bottom:0;left:0;right:0;padding:28px 20px;
+    background:linear-gradient(to top,rgba(14,14,14,0.9) 0%,transparent 100%);
+  }
+  .og-card-name{font-family:'Noto Serif JP',serif;font-size:18px;font-weight:900;color:var(--white)}
+  .og-card-desc{font-size:11px;color:rgba(255,255,255,0.5);margin-top:4px;line-height:1.8}
+  .og-card-price{font-size:16px;font-weight:900;margin-top:6px;color:var(--white)}
+
+  /* MENU */
+  .mn{background:var(--cream)}
+  .mn-cat{border-bottom:1px solid var(--border)}
+  .mn-cat-h{display:flex;justify-content:space-between;align-items:center;padding:14px 0;cursor:pointer}
+  .mn-cat-n{font-family:'Noto Serif JP',serif;font-size:16px;font-weight:700;color:var(--text)}
+  .mn-cat-t{font-size:12px;color:var(--text-sub);transition:color 0.2s}
+  .mn-cat-h:hover .mn-cat-t{color:var(--text)}
+  .mn-cat-b{display:none;padding:0 0 14px}
+  .mn-cat-b.open{display:block}
+  .mn-list{display:grid;grid-template-columns:1fr 1fr;gap:4px 32px}
+  .mn-row{display:flex;justify-content:space-between;padding:4px 0;font-size:14px}
+  .mn-row-n{color:var(--text-sub)}
+  .mn-row-p{color:var(--red);font-weight:700;white-space:nowrap;margin-left:12px}
+
+  /* OWNER'S KODAWARI */
+  .ok-block{position:relative;overflow:hidden;margin-bottom:3px}
+  .ok-photo{width:100%;min-height:400px;overflow:hidden;position:relative;display:flex;align-items:center;justify-content:center}
+  .ok-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;filter:grayscale(1) brightness(0.4);transition:filter 0.5s}
+  .ok-photo:hover img{filter:grayscale(0.5) brightness(0.45)}
+  .ok-photo-content{
+    position:relative;z-index:2;padding:60px 48px;max-width:800px;
+  }
+  .ok-num-big{font-size:10px;color:var(--red);letter-spacing:3px;font-weight:700;margin-bottom:12px}
+  .ok-quote{
+    font-family:'Noto Serif JP',serif;font-size:30px;font-weight:900;
+    color:var(--white);letter-spacing:2px;line-height:1.7;margin-bottom:20px;
+  }
+  .ok-quote-mark{color:var(--red);font-size:40px;line-height:0;vertical-align:middle;margin-right:4px}
+  .ok-desc{font-size:14px;color:rgba(255,255,255,0.65);line-height:2.4;max-width:560px}
+
+  /* PHOTOS */
+  .ph{display:grid;grid-template-columns:repeat(6,1fr);margin-top:60px}
+  .ph-i{aspect-ratio:1;overflow:hidden}
+  .ph-i img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.5s}
+  .ph-i:hover img{transform:scale(1.05)}
+
+  /* ACCESS */
+  .s{padding:80px 32px}
+  .s-inner{max-width:1000px;margin:0 auto}
+  .s-label{font-size:10px;letter-spacing:5px;text-transform:uppercase;color:var(--red);font-weight:700;margin-bottom:8px}
+  .s-title{font-family:'Noto Serif JP',serif;font-size:26px;font-weight:900;letter-spacing:1px;color:var(--text)}
+  .s-cream{background:var(--cream);color:var(--text)}
+  .ac-grid{display:grid;grid-template-columns:1fr 1fr;gap:36px;margin-top:32px}
+  .ac-map{width:100%;height:280px;border-radius:3px;overflow:hidden}
+  .ac-map iframe{width:100%;height:100%;border:0}
+  .ac-rows{font-size:13px}
+  .ac-row{display:flex;gap:12px;padding:9px 0;border-bottom:1px solid rgba(0,0,0,0.06)}
+  .ac-row:last-child{border-bottom:none}
+  .ac-lbl{font-weight:700;min-width:68px;color:#1a1a1a;font-size:12px}
+  .ac-val{color:#666}
+  .ac-val a{color:var(--red);text-decoration:none;font-weight:500}
+
+  /* IG */
+  .ig{text-align:center;background:var(--cream)}
+  .ig .s-title{color:var(--text)}
+  .ig-grid{max-width:720px;margin:24px auto 0;display:grid;grid-template-columns:repeat(3,1fr);gap:4px}
+  .ig-grid div{aspect-ratio:1;background:var(--light);border-radius:3px;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:rgba(0,0,0,0.12);font-size:24px}
+  .ig-btn{display:inline-block;margin-top:14px;color:var(--text-sub);text-decoration:none;font-size:11px;padding:5px 12px;border:1px solid var(--border);border-radius:3px;transition:all 0.2s}
+  .ig-btn:hover{color:var(--text);border-color:rgba(0,0,0,0.2)}
+
+  /* PROMO */
+  .pm{background:var(--black);padding:64px 32px;text-align:center;color:var(--white)}
+  .pm .s-label{color:var(--red)}
+  .pm-t{font-family:'Noto Serif JP',serif;font-size:20px;font-weight:900;margin-bottom:8px;color:var(--white)}
+  .pm-d{font-size:13px;color:rgba(255,255,255,0.4);margin-bottom:18px;line-height:2}
+  .pm-btn{display:inline-block;background:var(--white);color:var(--black);text-decoration:none;font-size:13px;font-weight:700;padding:11px 28px;border-radius:3px;transition:background 0.3s}
+  .pm-btn:hover{background:var(--gold)}
+
+  /* RECRUIT */
+  .rc{text-align:center;padding:64px 32px;background:var(--cream);position:relative;overflow:hidden}
+  .rc::before{content:'';position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1590846406792-0adc7f938f1d?w=1200&q=60&fit=crop') center/cover;opacity:0.08}
+  .rc>*{position:relative}
+  .rc-btn{display:inline-block;background:var(--red);color:var(--white);text-decoration:none;font-size:14px;font-weight:700;padding:12px 36px;border-radius:3px}
+
+  /* FOOTER */
+  footer{background:var(--dark);color:rgba(255,255,255,0.3);padding:40px 32px 0}
+  .ft-inner{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:36px;padding-bottom:32px}
+  .ft-logo{font-family:'Zen Antique Soft',serif;font-size:18px;color:var(--white);letter-spacing:2px;margin-bottom:8px}
+  .ft-logo span{color:var(--red)}
+  .ft-co{font-size:11px;line-height:1.8}
+  .ft-col h5{font-size:10px;text-transform:uppercase;letter-spacing:2px;color:rgba(255,255,255,0.18);margin-bottom:8px}
+  .ft-col a{display:block;color:rgba(255,255,255,0.3);text-decoration:none;font-size:11px;margin-bottom:6px;transition:color 0.2s}
+  .ft-col a:hover{color:var(--white)}
+  .ft-btm{border-top:1px solid rgba(255,255,255,0.04);padding:14px 0;text-align:center;font-size:10px;max-width:1000px;margin:0 auto}
+
+  .fi{opacity:0;transform:translateY(20px);transition:opacity 0.7s,transform 0.7s}
+  .fi.v{opacity:1;transform:none}
+
+  /* RESPONSIVE */
+  @media(max-width:768px){
+    .nav{display:none}.hb{display:block}
+    .hero{grid-template-columns:1fr;height:auto;min-height:0}
+    .hero-half{min-height:50vh}
+    .hero-divider{display:none}
+    .hero-center{position:relative;top:auto;left:auto;transform:none;padding:32px 20px;background:var(--black);pointer-events:auto}
+    .hero-center-logo{font-size:44px}.hero-center-logo .w{font-size:54px}
+    .hero-center-store{font-size:20px;letter-spacing:4px}
+    .hero-right .hero-half-c{text-align:left}
+    .hero-scroll{display:none}
+    .kd-pair{grid-template-columns:1fr}
+    .kd-cell:first-child{border-right:none;border-bottom:1px solid var(--border)}
+    .kd-cell{padding:32px 20px}
+    .og-grid{grid-template-columns:1fr}
+    .og-card{aspect-ratio:4/3}
+    .ok-photo{min-height:300px}
+    .ok-photo-content{padding:40px 20px}
+    .ok-quote{font-size:22px}
+    .mn-list{grid-template-columns:1fr}
+    .ph{grid-template-columns:repeat(3,1fr)}
+    .ac-grid{grid-template-columns:1fr}
+    .ft-inner{grid-template-columns:1fr}
+    .s{padding:64px 20px}
+  }
+</style>
+</head>
+<body>
+
+<header class="hd" id="hd">
+  <a href="/" class="hd-logo">RAMEN <span>W</span></a>
+  <nav class="nav">
+    <div class="nav-sw"><a href="/" class="on">本店</a><a href="/shokudo/">食堂W</a></div>
+    <a href="#menu">メニュー</a><a href="#kodawari">こだわり</a><a href="#access">アクセス</a><a href="/recruit/">採用</a>
+    <a href="https://airrsv.net/ramenw/calendar" class="nav-rsv" target="_blank">予約</a>
+  </nav>
+  <button class="hb" id="hb" onclick="toggleDr()" aria-label="メニュー"><i></i><i></i><i></i></button>
+</header>
+<nav class="dr" id="dr">
+  <div class="dr-sw"><a href="/" class="on">本店</a><a href="/shokudo/">食堂W</a></div>
+  <a href="#menu" onclick="closeDr()">メニュー</a><a href="#kodawari" onclick="closeDr()">こだわり</a><a href="#access" onclick="closeDr()">アクセス</a><a href="/recruit/">採用</a>
+  <a href="https://airrsv.net/ramenw/calendar" class="dr-rsv" target="_blank">予約</a>
+</nav>
+
+<!-- ===== HERO: 2分割 ===== -->
+<section class="hero">
+  <div class="hero-half hero-left">
+    <div class="hero-half-img" id="slides-left">
+      <div class="hero-slide-img on" style="background-image:url('https://images.unsplash.com/photo-1557872943-16a5ac26437e?w=1000&q=80&fit=crop')"></div>
+      <div class="hero-slide-img" style="background-image:url('images/noodles.jpg')"></div>
+      <div class="hero-slide-img" style="background-image:url('images/store-interior.jpg')"></div>
+    </div>
+    <div class="hero-half-dim"></div>
+    <div class="hero-half-c">
+      <div class="hero-brand">麺や庄の 直伝</div>
+      <!-- TODO: 暖簾ロゴ画像に差し替え <img src="/images/logo-shono.png" alt="庄の" style="height:60px"> -->
+      <div class="hero-name">庄の<br>濃厚豚骨魚介</div>
+      <div class="hero-desc">魚介と豚骨の芳醇なスープ。<br>中細ストレート麺。</div>
+      <div class="hero-price">¥950</div>
+    </div>
+  </div>
+  <div class="hero-divider"></div>
+  <div class="hero-half hero-right">
+    <div class="hero-half-img" id="slides-right">
+      <div class="hero-slide-img on" style="background-image:url('images/domiso-01.jpg')"></div>
+      <div class="hero-slide-img" style="background-image:url('https://images.unsplash.com/photo-1614563637806-1d0e645e0940?w=1000&q=80&fit=crop')"></div>
+      <div class="hero-slide-img" style="background-image:url('images/store-kitchen.jpg')"></div>
+    </div>
+    <div class="hero-half-dim"></div>
+    <div class="hero-half-c">
+      <div class="hero-brand">ど・みそ 直伝</div>
+      <!-- TODO: 暖簾ロゴ画像に差し替え <img src="/images/logo-domiso.png" alt="ど・みそ" style="height:60px"> -->
+      <div class="hero-name">ど・みそ<br>濃厚みそ</div>
+      <div class="hero-desc">5種の味噌ブレンド。<br>中太縮れ麺。</div>
+      <div class="hero-price">¥950</div>
+    </div>
+  </div>
+  <div class="hero-center">
+    <div class="hero-center-logo">RAMEN <span class="w">W</span></div>
+    <div class="hero-center-store"><span class="shono">庄の</span> <span class="x">×</span> <span class="domiso">ど・みそ</span></div>
+    <div class="hero-center-sub">福井で、本気の一杯を。</div>
+  </div>
+  <div class="hero-scroll">SCROLL</div>
+</section>
+
+<!-- ===== KODAWARI: 2分割対比 ===== -->
+<section class="s kd" id="kodawari" style="position:relative;overflow:hidden;">
+  <div class="sumi-e sumi-fish"></div>
+  <div class="sumi-e sumi-bone"></div>
+  <div class="sumi-e sumi-miso"></div>
+  <div class="sumi-e sumi-crab"></div>
+  <div class="s-inner" style="position:relative;z-index:1;">
+    <div class="kd-header fi">
+      <div class="s-label">Our Craft</div>
+      <h2 class="s-title">同じ「W」から、二つの個性。</h2>
+    </div>
+
+    <div class="kd-pair fi">
+      <div class="kd-cell">
+        <div class="kd-cell-num">01 SOUP — 庄の</div>
+        <div class="kd-cell-title">魚介豚骨の芳醇</div>
+        <div class="kd-cell-text">魚介と豚骨を丁寧に炊き上げた「麺や庄の」直伝のスープ。福井の水で仕上げることで、東京にはない奥行きが生まれる。</div>
+        <div class="kd-cell-img"><img src="images/shono-kd.jpg" alt="庄のスープ" loading="lazy"></div>
+      </div>
+      <div class="kd-cell">
+        <div class="kd-cell-num">01 SOUP — ど・みそ</div>
+        <div class="kd-cell-title">5種味噌の濃厚</div>
+        <div class="kd-cell-text">5種類の味噌をブレンドした「ど・みそ」直伝の濃厚スープ。味噌の奥行きを追求し続けている。</div>
+        <div class="kd-cell-img"><img src="images/domiso-01.jpg" alt="ど・みそスープ" loading="lazy"></div>
+      </div>
+    </div>
+
+    <div class="kd-pair fi">
+      <div class="kd-cell">
+        <div class="kd-cell-num">02 NOODLES — 庄の</div>
+        <div class="kd-cell-title">中細ストレート</div>
+        <div class="kd-cell-text">魚介豚骨スープを最大限に持ち上げる、しなやかな中細ストレート麺。</div>
+      </div>
+      <div class="kd-cell">
+        <div class="kd-cell-num">02 NOODLES — ど・みそ</div>
+        <div class="kd-cell-title">中太縮れ麺</div>
+        <div class="kd-cell-text">濃厚な味噌スープを絡め取る、もちもちの中太縮れ麺。</div>
+      </div>
+    </div>
+
+    <div class="kd-pair fi">
+      <div class="kd-cell">
+        <div class="kd-cell-num">03 TOPPINGS</div>
+        <div class="kd-cell-title">具材に手を抜かない</div>
+        <div class="kd-cell-text">チャーシューは低温調理でしっとり。味玉、メンマ、海苔。一つひとつに手間をかけた仕上げ。</div>
+      </div>
+      <div class="kd-cell">
+        <div class="kd-cell-num">03 TOPPINGS</div>
+        <div class="kd-cell-title">味噌に合う具材を</div>
+        <div class="kd-cell-text">濃厚味噌に負けない存在感のチャーシューと、味噌の風味を引き立てるトッピング。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ORIGINALS: 3分割カード ===== -->
+<section class="s og" id="menu">
+  <div class="s-inner">
+    <div class="og-header fi">
+      <div class="s-label">Pick Up</div>
+      <h2 class="s-title">気になる一杯を、選ぶ。</h2>
+    </div>
+    <div class="og-grid fi">
+      <div class="og-card">
+        <img src="https://images.unsplash.com/photo-1591814468924-caf88d1232e1?w=600&q=80&fit=crop" alt="全部乗せ" loading="lazy">
+        <div class="og-card-body">
+          <div class="og-card-name">庄の 全部乗せ</div>
+          <div class="og-card-desc">チャーシュー増し・味玉・海苔。贅沢な一杯。</div>
+          <div class="og-card-price">¥1,200</div>
+        </div>
+      </div>
+      <div class="og-card">
+        <img src="https://images.unsplash.com/photo-1614563637806-1d0e645e0940?w=600&q=80&fit=crop" alt="激辛みそ" loading="lazy">
+        <div class="og-card-body">
+          <div class="og-card-name">ど・みそ 激辛</div>
+          <div class="og-card-desc">濃厚味噌に辛さの刺激をプラス。</div>
+          <div class="og-card-price">¥980</div>
+        </div>
+      </div>
+      <div class="og-card">
+        <img src="https://images.unsplash.com/photo-1617093727343-374698b1b08d?w=600&q=80&fit=crop" alt="越前紅ずわいがに" loading="lazy">
+        <div class="og-card-body">
+          <div class="og-card-name">越前紅ずわいがに</div>
+          <div class="og-card-desc">期間限定。福井の蟹の旨みを凝縮。</div>
+          <div class="og-card-price">¥1,580</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MENU ALL -->
+<section class="s mn" style="position:relative;overflow:hidden;">
+  <div class="sumi-e sumi-menu-bone"></div>
+  <div class="sumi-e sumi-menu-fish"></div>
+  <div class="s-inner" style="position:relative;z-index:1;">
+    <div class="s-label fi">Full Menu</div>
+    <h2 class="s-title fi" style="margin-bottom:24px;">メニュー一覧</h2>
+    <div class="mn-cat">
+      <div class="mn-cat-h" onclick="toggleM(this)"><div class="mn-cat-n">庄のらーめん</div><div class="mn-cat-t">閉じる ▴</div></div>
+      <div class="mn-cat-b open"><div class="mn-list">
+        <div class="mn-row"><span class="mn-row-n">庄の 濃厚豚骨魚介らーめん</span><span class="mn-row-p">¥950</span></div>
+        <div class="mn-row"><span class="mn-row-n">庄の 全部乗せ</span><span class="mn-row-p">¥1,200</span></div>
+      </div></div>
+    </div>
+    <div class="mn-cat">
+      <div class="mn-cat-h" onclick="toggleM(this)"><div class="mn-cat-n">ど・みそ</div><div class="mn-cat-t">もっと見る ▾</div></div>
+      <div class="mn-cat-b"><div class="mn-list">
+        <div class="mn-row"><span class="mn-row-n">ど・みそ 濃厚みそらーめん</span><span class="mn-row-p">¥950</span></div>
+        <div class="mn-row"><span class="mn-row-n">ど・みそ 全部乗せ</span><span class="mn-row-p">¥1,200</span></div>
+        <div class="mn-row"><span class="mn-row-n">ど・みそ 激辛濃厚みそ</span><span class="mn-row-p">¥980</span></div>
+      </div></div>
+    </div>
+    <div class="mn-cat">
+      <div class="mn-cat-h" onclick="toggleM(this)"><div class="mn-cat-n">期間限定</div><div class="mn-cat-t">もっと見る ▾</div></div>
+      <div class="mn-cat-b"><div class="mn-list">
+        <div class="mn-row"><span class="mn-row-n">越前紅ずわいがにらーめん</span><span class="mn-row-p">¥1,580</span></div>
+      </div></div>
+    </div>
+    <div class="mn-cat">
+      <div class="mn-cat-h" onclick="toggleM(this)"><div class="mn-cat-n">サイド・ドリンク</div><div class="mn-cat-t">もっと見る ▾</div></div>
+      <div class="mn-cat-b"><div class="mn-list">
+        <div class="mn-row"><span class="mn-row-n">チャーシュー丼</span><span class="mn-row-p">¥—</span></div>
+        <div class="mn-row"><span class="mn-row-n">餃子</span><span class="mn-row-p">¥—</span></div>
+        <div class="mn-row"><span class="mn-row-n">お子様らーめん（ジュース付）</span><span class="mn-row-p">¥500</span></div>
+      </div></div>
+    </div>
+  </div>
+</section>
+
+<!-- OWNER'S KODAWARI -->
+<div class="ok-block fi">
+  <div class="ok-photo">
+    <img src="images/kodawari-soup.jpg" alt="スープを注ぐ" loading="lazy" style="object-position:center 60%">
+    <div class="ok-photo-content" style="text-align:center;margin:0 auto;">
+      <div class="s-label" style="color:rgba(255,255,255,0.5);">Owner's Philosophy</div>
+      <h2 class="ok-quote" style="margin-bottom:24px;">店主の、こだわり。</h2>
+      <div class="ok-num-big">01</div>
+      <!-- TODO: 北川さんヒアリング後にテキスト差し替え -->
+      <div class="ok-quote"><span class="ok-quote-mark">"</span>毎朝4時。スープの仕込みから始まる。</div>
+      <div class="ok-desc">ここに北川さんのこだわりテキストが入ります。ヒアリング後に差し替え予定。スープづくりへの想い、妥協しない姿勢について。</div>
+    </div>
+  </div>
+</div>
+
+<div class="ok-block fi">
+  <div class="ok-photo">
+    <img src="images/kodawari-ingredients.jpg" alt="食材の仕込み" loading="lazy">
+    <div class="ok-photo-content" style="text-align:center;margin:0 auto;">
+      <div class="ok-num-big">02</div>
+      <!-- TODO: 北川さんヒアリング後にテキスト差し替え -->
+      <div class="ok-quote"><span class="ok-quote-mark">"</span>福井の水が、味を変えた。</div>
+      <div class="ok-desc" style="margin:0 auto;">ここに北川さんのこだわりテキストが入ります。ヒアリング後に差し替え予定。福井の食材・水との出会い、東京との違いについて。</div>
+    </div>
+  </div>
+</div>
+
+<div class="ok-block fi">
+  <div class="ok-photo">
+    <img src="images/store-interior.jpg" alt="店内" loading="lazy">
+    <div class="ok-photo-content" style="text-align:center;margin:0 auto;">
+      <div class="ok-num-big">03</div>
+      <!-- TODO: 北川さんヒアリング後にテキスト差し替え -->
+      <div class="ok-quote"><span class="ok-quote-mark">"</span>「また来たい」が、一番の褒め言葉。</div>
+      <div class="ok-desc" style="margin:0 auto;">ここに北川さんのこだわりテキストが入ります。ヒアリング後に差し替え予定。お客さんへの想い、地元に根付く店でありたいということ。</div>
+    </div>
+  </div>
+</div>
+
+<!-- PHOTOS -->
+<div class="ph fi">
+  <div class="ph-i"><img src="https://images.unsplash.com/photo-1554502078-ef0fc409efce?w=400&q=80&fit=crop" alt="店内" loading="lazy"></div>
+  <div class="ph-i"><img src="https://images.unsplash.com/photo-1590846406792-0adc7f938f1d?w=400&q=80&fit=crop" alt="調理" loading="lazy"></div>
+  <div class="ph-i"><img src="images/store-interior.jpg" alt="カウンター" loading="lazy"></div>
+  <div class="ph-i"><img src="images/store-kitchen.jpg" alt="厨房" loading="lazy"></div>
+  <div class="ph-i"><img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=400&q=80&fit=crop" alt="雰囲気" loading="lazy"></div>
+  <div class="ph-i"><img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=400&q=80&fit=crop" alt="外観" loading="lazy"></div>
+</div>
+
+<!-- ACCESS -->
+<section class="s s-cream s-access" id="access">
+  <div class="s-inner">
+    <div class="s-label fi">Access</div>
+    <h2 class="s-title fi" style="color:#1a1a1a">店舗情報</h2>
+    <div class="ac-grid fi">
+      <div class="ac-map"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3224.5!2d136.2347!3d36.0542!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5ff8e7a1234567%3A0x1234567890abcdef!2sRAMEN+W!5e0!3m2!1sja!2sjp!4v1234567890" allowfullscreen loading="lazy"></iframe></div>
+      <div class="ac-rows">
+        <div class="ac-row"><div class="ac-lbl">住所</div><div class="ac-val">〒910-0837 福井市開発2丁目207</div></div>
+        <div class="ac-row"><div class="ac-lbl">電話</div><div class="ac-val"><a href="tel:0776-50-2940">0776-50-2940</a></div></div>
+        <div class="ac-row"><div class="ac-lbl">営業時間</div><div class="ac-val">平日 11:00〜14:30 / 17:00〜21:00LO<br>土日祝 11:00〜21:00LO</div></div>
+        <div class="ac-row"><div class="ac-lbl">定休日</div><div class="ac-val">SNSにて配信中</div></div>
+        <div class="ac-row"><div class="ac-lbl">注文</div><div class="ac-val">食券制</div></div>
+        <div class="ac-row"><div class="ac-lbl">座席</div><div class="ac-val">カウンター + 小上がり</div></div>
+        <div class="ac-row"><div class="ac-lbl">駐車場</div><div class="ac-val">あり</div></div>
+        <div class="ac-row"><div class="ac-lbl">予約</div><div class="ac-val"><a href="https://airrsv.net/ramenw/calendar" target="_blank">小上がり席ネット予約（4〜8名）</a></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INSTAGRAM -->
+<section class="s ig">
+  <div class="s-inner">
+    <div class="s-label fi">Instagram</div>
+    <div style="font-family:'Noto Serif JP',serif;font-size:18px;font-weight:700" class="fi">@ramen_w_fukui</div>
+    <div class="ig-grid"><div>&#x1F4F7;</div><div>&#x1F4F7;</div><div>&#x1F4F7;</div><div>&#x1F4F7;</div><div>&#x1F4F7;</div><div>&#x1F4F7;</div></div>
+    <a href="https://www.instagram.com/ramen_w_fukui/" class="ig-btn" target="_blank">フォローする</a>
+  </div>
+</section>
+
+<!-- PROMO -->
+<div class="pm">
+  <div class="s-label fi">Another W</div>
+  <div class="pm-t fi">自家製麺 らぁ麺食堂W</div>
+  <div class="pm-d">同じ想いから生まれた、もうひとつの「W」。<br>全メニューオリジナル。車で5分。</div>
+  <a href="/shokudo/" class="pm-btn fi">食堂Wのページへ</a>
+</div>
+
+<!-- RECRUIT -->
+<section class="rc">
+  <div class="s-label fi" style="color:var(--red)">Recruit</div>
+  <h2 class="s-title fi" style="font-size:20px;color:#1a1a1a">スタッフ募集中</h2>
+  <p style="font-size:13px;color:#888;margin:8px auto 16px">未経験歓迎、まかない付き。</p>
+  <a href="/recruit/" class="rc-btn fi">採用情報を見る</a>
+</section>
+
+<footer>
+  <div class="ft-inner">
+    <div><div class="ft-logo">RAMEN <span>W</span></div><div class="ft-co">株式会社ノースリバー<br>North River Inc.<br>福井県福井市開発2-207</div></div>
+    <div class="ft-col"><h5>Pages</h5><a href="/">RAMEN W 本店</a><a href="/shokudo/">らぁ麺食堂W</a><a href="/recruit/">採用情報</a></div>
+    <div class="ft-col"><h5>Follow</h5><a href="https://www.instagram.com/ramen_w_fukui/" target="_blank">Instagram</a><a href="https://x.com/RAMEN_W_FUKUI" target="_blank">X</a><a href="https://lin.ee/8OfLom9" target="_blank">LINE公式</a><a href="https://airrsv.net/ramenw/calendar" target="_blank">ネット予約</a></div>
+  </div>
+  <div class="ft-btm">&copy; 2025 RAMEN W Group / North River Inc.</div>
+</footer>
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Restaurant","name":"RAMEN W ～庄の×ど・みそ～","url":"https://ramenw.jp/","telephone":"0776-50-2940","address":{"@type":"PostalAddress","streetAddress":"開発2丁目207","addressLocality":"福井市","addressRegion":"福井県","postalCode":"910-0837","addressCountry":"JP"},"servesCuisine":"ラーメン","priceRange":"¥950〜¥1,580","acceptsReservations":"https://airrsv.net/ramenw/calendar"}
+</script>
+<script>
+function toggleM(el){var b=el.nextElementSibling,t=el.querySelector('.mn-cat-t');b.classList.toggle('open');t.textContent=b.classList.contains('open')?'閉じる ▴':'もっと見る ▾'}
+function toggleDr(){document.getElementById('dr').classList.toggle('open');document.getElementById('hb').classList.toggle('on');document.body.style.overflow=document.getElementById('dr').classList.contains('open')?'hidden':''}
+function closeDr(){document.getElementById('dr').classList.remove('open');document.getElementById('hb').classList.remove('on');document.body.style.overflow=''}
+window.addEventListener('scroll',function(){document.getElementById('hd').classList.toggle('scrolled',window.scrollY>50)});
+var ob=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)e.target.classList.add('v')})},{threshold:0.1});
+document.querySelectorAll('.fi').forEach(function(el){ob.observe(el)});
+
+/* HERO DUAL SLIDER */
+(function(){
+  var L=document.querySelectorAll('#slides-left .hero-slide-img');
+  var R=document.querySelectorAll('#slides-right .hero-slide-img');
+  var i=0;
+  setInterval(function(){
+    L[i].classList.remove('on');
+    R[i].classList.remove('on');
+    i=(i+1)%L.length;
+    L[i].classList.add('on');
+    R[i].classList.add('on');
+  },5000);
+})();
+</script>
+</body>
+</html>
