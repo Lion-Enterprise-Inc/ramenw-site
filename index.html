@@ -603,6 +603,15 @@ document.querySelectorAll('.fi').forEach(function(el){ob.observe(el)});
     R[i].classList.add('on');
   },5000);
 })();
+// Unsplash画像に「写真差し替え予定」オーバーレイ
+document.querySelectorAll('img[src*="unsplash"]').forEach(function(img){
+  var p=img.parentElement;
+  if(p.style.position!=='absolute')p.style.position='relative';
+  var tag=document.createElement('span');
+  tag.textContent='※ 写真は差し替え予定です';
+  tag.style.cssText='position:absolute;bottom:6px;left:6px;background:rgba(0,0,0,0.7);color:#fff;font-size:10px;padding:2px 8px;border-radius:3px;z-index:5;pointer-events:none';
+  p.appendChild(tag);
+});
 </script>
 </body>
 </html>
