@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>採用情報｜RAMEN Wグループ</title>
+<meta name="description" content="RAMEN Wグループの採用情報。アルバイト・正社員募集中。未経験歓迎、まかない付き。">
+<link rel="canonical" href="https://ramenw.jp/recruit/">
+<meta property="og:title" content="採用情報｜RAMEN Wグループ">
+<meta property="og:description" content="RAMEN Wグループの採用情報。アルバイト・正社員募集中。未経験歓迎、まかない付き。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://ramenw.jp/recruit/">
+<meta property="og:site_name" content="RAMEN W">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=Noto+Serif+JP:wght@400;700&display=swap');
+
+  :root {
+    --black: #0a0a0a;
+    --dark: #1a1a1a;
+    --red: #b91c2e;
+    --red-dark: #8e1525;
+    --gold: #c9a84c;
+    --cream: #faf6ef;
+    --warm-gray: #6b6560;
+    --light-gray: #e8e3db;
+    --white: #ffffff;
+    --teal: #2a7a6b;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body { font-family:'Noto Sans JP',sans-serif; background:var(--cream); color:var(--dark); line-height:1.8; }
+
+  .site-header { position:fixed; top:0; width:100%; z-index:100; background:rgba(10,10,10,0.4); backdrop-filter:blur(4px); transition:background 0.3s; }
+  .site-header.scrolled { background:rgba(10,10,10,0.95); backdrop-filter:blur(8px); }
+  .header-inner { max-width:1100px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; padding:0 24px; height:64px; }
+  .logo { font-family:'Noto Serif JP',serif; font-weight:700; font-size:20px; color:var(--white); text-decoration:none; letter-spacing:2px; }
+  .logo span { color:var(--red); font-size:24px; }
+  .nav-links { display:flex; align-items:center; gap:4px; }
+  .nav-links a { color:rgba(255,255,255,0.7); text-decoration:none; font-size:12px; font-weight:500; letter-spacing:1.5px; padding:6px 14px; border-radius:4px; transition:all 0.3s; }
+  .nav-links a:hover { color:var(--white); }
+
+  .hero { height:60vh; min-height:400px; background:var(--black); display:flex; align-items:center; justify-content:center; text-align:center; position:relative; overflow:hidden; padding-top:64px; }
+  .hero::before { content:''; position:absolute; inset:0; background:url('https://images.unsplash.com/photo-1590846406792-0adc7f938f1d?w=1600&q=80&fit=crop') center/cover; opacity:0.2; }
+  .hero::after { content:''; position:absolute; inset:0; background:radial-gradient(ellipse at 50% 50%, rgba(185,28,46,0.1) 0%, transparent 60%); }
+  .hero-content { position:relative; z-index:3; }
+  .hero-label { font-size:11px; color:var(--red); letter-spacing:4px; text-transform:uppercase; margin-bottom:12px; }
+  .hero h1 { font-family:'Noto Serif JP',serif; font-size:40px; font-weight:900; color:var(--white); letter-spacing:4px; margin-bottom:16px; }
+  .hero p { font-size:15px; color:rgba(255,255,255,0.5); letter-spacing:2px; line-height:2; }
+
+  .section { padding:80px 24px; }
+  .section-dark { background:var(--dark); color:var(--white); }
+  .section-black { background:var(--black); color:var(--white); }
+  .section-inner { max-width:900px; margin:0 auto; }
+  .section-label { font-size:11px; letter-spacing:4px; text-transform:uppercase; color:var(--red); font-weight:500; margin-bottom:8px; }
+  .section-title { font-family:'Noto Serif JP',serif; font-size:28px; font-weight:700; margin-bottom:16px; letter-spacing:2px; }
+
+  .appeal-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-top:40px; }
+  .appeal-card { background:var(--white); border-radius:8px; padding:32px 24px; text-align:center; box-shadow:0 2px 12px rgba(0,0,0,0.04); }
+  .appeal-icon { font-size:36px; margin-bottom:12px; }
+  .appeal-card h3 { font-family:'Noto Serif JP',serif; font-size:18px; font-weight:700; margin-bottom:8px; }
+  .appeal-card p { font-size:13px; color:var(--warm-gray); line-height:2; }
+
+  .timeline { margin-top:40px; position:relative; padding-left:32px; }
+  .timeline::before { content:''; position:absolute; left:8px; top:8px; bottom:8px; width:2px; background:rgba(255,255,255,0.1); }
+  .timeline-item { position:relative; margin-bottom:28px; }
+  .timeline-item::before { content:''; position:absolute; left:-28px; top:6px; width:12px; height:12px; border-radius:50%; background:var(--red); border:2px solid var(--dark); }
+  .timeline-time { font-size:12px; color:var(--gold); letter-spacing:2px; font-weight:500; }
+  .timeline-desc { font-size:14px; color:rgba(255,255,255,0.6); margin-top:4px; }
+
+  .store-job { background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.06); border-radius:8px; padding:32px; margin-bottom:24px; }
+  .store-job h3 { font-family:'Noto Serif JP',serif; font-size:20px; font-weight:700; color:var(--white); margin-bottom:4px; }
+  .store-job .store-addr { font-size:12px; color:rgba(255,255,255,0.35); letter-spacing:1px; }
+  .job-grid { display:grid; grid-template-columns:100px 1fr; gap:0; margin-top:20px; }
+  .job-label { font-size:12px; font-weight:500; color:rgba(255,255,255,0.4); padding:10px 0; border-bottom:1px solid rgba(255,255,255,0.06); }
+  .job-value { font-size:13px; color:rgba(255,255,255,0.7); padding:10px 0; border-bottom:1px solid rgba(255,255,255,0.06); }
+  .badge { display:inline-block; font-size:10px; font-weight:700; padding:2px 8px; border-radius:3px; margin-right:6px; letter-spacing:0.5px; }
+  .badge-part { background:var(--gold); color:var(--dark); }
+  .badge-full { background:var(--red); color:var(--white); }
+
+  .apply-section { text-align:center; padding:80px 24px; background:var(--dark); }
+  .apply-btn { display:flex; align-items:center; justify-content:center; gap:8px; padding:16px; border-radius:6px; text-decoration:none; font-size:15px; font-weight:500; letter-spacing:0.5px; transition:all 0.2s; }
+  .apply-btn--tel { background:rgba(255,255,255,0.08); color:var(--white); border:1px solid rgba(255,255,255,0.15); }
+  .apply-btn--tel:hover { background:rgba(255,255,255,0.12); }
+
+  footer { background:var(--black); color:rgba(255,255,255,0.5); padding:40px 24px; text-align:center; }
+  footer a { color:rgba(255,255,255,0.5); text-decoration:none; transition:color 0.2s; }
+  footer a:hover { color:var(--white); }
+  .footer-copy { margin-top:16px; font-size:11px; color:rgba(255,255,255,0.2); }
+
+  .hamburger {
+    display:none; background:none; border:none; cursor:pointer;
+    width:44px; height:44px; position:relative; z-index:120;
+  }
+  .hamburger span {
+    display:block; width:22px; height:2px; background:var(--white);
+    position:absolute; left:11px; transition:all 0.3s;
+  }
+  .hamburger span:nth-child(1) { top:14px; }
+  .hamburger span:nth-child(2) { top:21px; }
+  .hamburger span:nth-child(3) { top:28px; }
+  .hamburger.active span:nth-child(1) { top:21px; transform:rotate(45deg); }
+  .hamburger.active span:nth-child(2) { opacity:0; }
+  .hamburger.active span:nth-child(3) { top:21px; transform:rotate(-45deg); }
+
+  .mobile-drawer {
+    display:none; position:fixed; inset:0; z-index:105;
+    background:rgba(10,10,10,0.97); backdrop-filter:blur(12px);
+    flex-direction:column; align-items:center; justify-content:center; gap:8px;
+  }
+  .mobile-drawer.open { display:flex; }
+  .mobile-drawer a {
+    color:rgba(255,255,255,0.8); text-decoration:none;
+    font-size:16px; font-weight:500; letter-spacing:2px; padding:12px 24px;
+  }
+
+  .fade-up {
+    opacity:0; transform:translateY(32px);
+    transition:opacity 0.7s ease, transform 0.7s ease;
+  }
+  .fade-up.visible { opacity:1; transform:translateY(0); }
+
+  @media (max-width:768px) {
+    .nav-links { display:none; }
+    .hamburger { display:block; }
+    .hero h1 { font-size:28px; }
+    .appeal-grid { grid-template-columns:1fr; }
+    .job-grid { grid-template-columns:80px 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="/" class="logo">RAMEN <span>W</span></a>
+    <div class="nav-links">
+      <a href="/">本店</a>
+      <a href="/shokudo/">食堂W</a>
+      <a href="#positions">募集内容</a>
+      <a href="#apply">応募する</a>
+    </div>
+    <button class="hamburger" onclick="toggleDrawer()" aria-label="メニュー">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<nav class="mobile-drawer" id="drawer">
+  <a href="/">RAMEN W 本店</a>
+  <a href="/shokudo/">自家製麺 らぁ麺食堂W</a>
+  <a href="#positions" onclick="closeDrawer()">募集内容</a>
+  <a href="#apply" onclick="closeDrawer()">応募する</a>
+</nav>
+
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-label">Recruit</div>
+    <h1>一緒に、旨い一杯を。</h1>
+    <p>ラーメンが好き。それが一番の資格です。</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-inner">
+    <div class="section-label">Why W?</div>
+    <h2 class="section-title">Wで働く魅力</h2>
+    <div class="appeal-grid">
+      <div class="appeal-card fade-up">
+        <div class="appeal-icon">&#x1F35C;</div>
+        <h3>まかない付き</h3>
+        <p>Wグループ自慢のラーメンが毎日食べられます。これだけで価値あり。</p>
+      </div>
+      <div class="appeal-card fade-up">
+        <div class="appeal-icon">&#x1F4DA;</div>
+        <h3>未経験OK</h3>
+        <p>飲食未経験でも丁寧に教えます。高校生・大学生・Wワークも歓迎。</p>
+      </div>
+      <div class="appeal-card fade-up">
+        <div class="appeal-icon">&#x1F697;</div>
+        <h3>車通勤OK</h3>
+        <p>駐車場完備。福井の暮らしに合った働き方ができます。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-dark">
+  <div class="section-inner">
+    <div class="section-label">A Day at W</div>
+    <h2 class="section-title">ある一日の流れ（アルバイト例）</h2>
+    <div class="timeline">
+      <div class="timeline-item fade-up">
+        <div class="timeline-time">10:00</div>
+        <div class="timeline-desc">出勤・開店準備。スープの仕込み確認、食材のセッティング。</div>
+      </div>
+      <div class="timeline-item fade-up">
+        <div class="timeline-time">11:00</div>
+        <div class="timeline-desc">オープン。ホールまたはキッチンのポジションで営業スタート。</div>
+      </div>
+      <div class="timeline-item fade-up">
+        <div class="timeline-time">13:30</div>
+        <div class="timeline-desc">ランチピーク終了。片付け・補充。スタッフ同士でまかないタイム。</div>
+      </div>
+      <div class="timeline-item fade-up">
+        <div class="timeline-time">14:30</div>
+        <div class="timeline-desc">退勤。お疲れさまでした！（シフトにより夜勤務もあります）</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-black" id="positions">
+  <div class="section-inner">
+    <div class="section-label">Open Positions</div>
+    <h2 class="section-title">募集中のポジション</h2>
+
+    <div class="store-job fade-up">
+      <h3>RAMEN W ～庄の×ど・みそ～</h3>
+      <div class="store-addr">福井市開発2丁目207</div>
+      <div class="job-grid">
+        <div class="job-label">職種</div>
+        <div class="job-value">
+          <span class="badge badge-part">アルバイト</span>ホール / 調理補助<br>
+          <span class="badge badge-full">正社員</span>店長候補 / 調理責任者
+        </div>
+        <div class="job-label">時間</div>
+        <div class="job-value">10:00〜22:00の間でシフト制<br>週2日〜OK（アルバイト）</div>
+        <div class="job-label">給与</div>
+        <div class="job-value">アルバイト：時給1,000円〜<br>正社員：月給22万円〜（経験考慮）</div>
+        <div class="job-label">待遇</div>
+        <div class="job-value" style="border-bottom:none;">まかない付き / 交通費支給 / 制服貸与 / 昇給あり / 駐車場あり</div>
+      </div>
+    </div>
+
+    <div class="store-job fade-up">
+      <h3>自家製麺 らぁ麺食堂W</h3>
+      <div class="store-addr">福井市米松1-15-28（国道8号沿い）</div>
+      <div class="job-grid">
+        <div class="job-label">職種</div>
+        <div class="job-value">
+          <span class="badge badge-part">アルバイト</span>ホール / 調理補助<br>
+          <span class="badge badge-full">正社員</span>調理スタッフ
+        </div>
+        <div class="job-label">時間</div>
+        <div class="job-value">10:00〜23:00の間でシフト制<br>週2日〜OK（アルバイト）</div>
+        <div class="job-label">給与</div>
+        <div class="job-value">アルバイト：時給1,000円〜<br>正社員：月給22万円〜（経験考慮）</div>
+        <div class="job-label">待遇</div>
+        <div class="job-value" style="border-bottom:none;">まかない付き / 交通費支給 / 制服貸与 / 昇給あり / 駐車場あり</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="apply-section" id="apply">
+  <div style="max-width:640px; margin:0 auto;">
+    <div class="section-label" style="text-align:center; color:var(--red);">Apply</div>
+    <h2 style="font-family:'Noto Serif JP',serif; font-size:28px; font-weight:700; color:var(--white); margin-bottom:32px; letter-spacing:2px; text-align:center;">応募フォーム</h2>
+
+    <form onsubmit="handleApply(event)" style="display:flex; flex-direction:column; gap:20px;">
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px;">
+        <div>
+          <label style="font-size:12px; color:rgba(255,255,255,0.5); display:block; margin-bottom:4px;">お名前 <span style="color:var(--red);">*</span></label>
+          <input type="text" required placeholder="山田 太郎" style="width:100%; padding:10px 14px; background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.12); border-radius:4px; color:var(--white); font-size:14px; outline:none;">
+        </div>
+        <div>
+          <label style="font-size:12px; color:rgba(255,255,255,0.5); display:block; margin-bottom:4px;">電話番号 <span style="color:var(--red);">*</span></label>
+          <input type="tel" required placeholder="090-0000-0000" style="width:100%; padding:10px 14px; background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.12); border-radius:4px; color:var(--white); font-size:14px; outline:none;">
+        </div>
+      </div>
+
+      <div>
+        <label style="font-size:12px; color:rgba(255,255,255,0.5); display:block; margin-bottom:4px;">希望店舗 <span style="color:var(--red);">*</span></label>
+        <div style="display:flex; gap:16px; flex-wrap:wrap; margin-top:4px;">
+          <label style="font-size:13px; color:rgba(255,255,255,0.7); cursor:pointer;"><input type="checkbox" name="store" value="honten" style="margin-right:4px;"> RAMEN W ～庄の×ど・みそ～</label>
+          <label style="font-size:13px; color:rgba(255,255,255,0.7); cursor:pointer;"><input type="checkbox" name="store" value="shokudo" style="margin-right:4px;"> 自家製麺 らぁ麺食堂W</label>
+          <label style="font-size:13px; color:rgba(255,255,255,0.7); cursor:pointer;"><input type="checkbox" name="store" value="any" style="margin-right:4px;"> どちらでもOK</label>
+        </div>
+      </div>
+
+      <div>
+        <label style="font-size:12px; color:rgba(255,255,255,0.5); display:block; margin-bottom:4px;">希望雇用形態 <span style="color:var(--red);">*</span></label>
+        <div style="display:flex; gap:16px; margin-top:4px;">
+          <label style="font-size:13px; color:rgba(255,255,255,0.7); cursor:pointer;"><input type="radio" name="type" value="part" required style="margin-right:4px;"> アルバイト</label>
+          <label style="font-size:13px; color:rgba(255,255,255,0.7); cursor:pointer;"><input type="radio" name="type" value="full" style="margin-right:4px;"> 正社員</label>
+          <label style="font-size:13px; color:rgba(255,255,255,0.7); cursor:pointer;"><input type="radio" name="type" value="either" style="margin-right:4px;"> どちらでも</label>
+        </div>
+      </div>
+
+      <div>
+        <label style="font-size:12px; color:rgba(255,255,255,0.5); display:block; margin-bottom:4px;">ひとこと（任意）</label>
+        <textarea rows="3" placeholder="質問や希望の勤務時間帯など" style="width:100%; padding:10px 14px; background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.12); border-radius:4px; color:var(--white); font-size:14px; outline:none; resize:vertical;"></textarea>
+      </div>
+
+      <button type="submit" style="padding:14px; background:var(--red); color:var(--white); border:none; border-radius:4px; font-size:15px; font-weight:500; cursor:pointer; letter-spacing:1px; transition:background 0.2s;">この内容で応募する</button>
+      <p style="font-size:11px; color:rgba(255,255,255,0.3); text-align:center;">※ 送信後、担当者より1〜3営業日以内にご連絡いたします</p>
+    </form>
+
+    <div style="text-align:center; margin-top:32px; padding-top:24px; border-top:1px solid rgba(255,255,255,0.08);">
+      <p style="font-size:13px; color:rgba(255,255,255,0.35); margin-bottom:12px;">電話でも応募できます</p>
+      <a href="tel:0776-50-2940" class="apply-btn apply-btn--tel" style="display:inline-flex;">0776-50-2940</a>
+    </div>
+  </div>
+</section>
+
+<script>
+function handleApply(e) {
+  e.preventDefault();
+  alert('ご応募ありがとうございます！\n担当者より1〜3営業日以内にご連絡いたします。');
+  e.target.reset();
+}
+function toggleDrawer() {
+  document.getElementById('drawer').classList.toggle('open');
+  document.querySelector('.hamburger').classList.toggle('active');
+  document.body.style.overflow = document.getElementById('drawer').classList.contains('open') ? 'hidden' : '';
+}
+function closeDrawer() {
+  document.getElementById('drawer').classList.remove('open');
+  document.querySelector('.hamburger').classList.remove('active');
+  document.body.style.overflow = '';
+}
+window.addEventListener('scroll', function() {
+  var h = document.querySelector('.site-header');
+  if (window.scrollY > 80) { h.classList.add('scrolled'); }
+  else { h.classList.remove('scrolled'); }
+});
+var observer = new IntersectionObserver(function(entries) {
+  entries.forEach(function(entry) {
+    if (entry.isIntersecting) { entry.target.classList.add('visible'); }
+  });
+}, { threshold: 0.15 });
+document.querySelectorAll('.fade-up').forEach(function(el) { observer.observe(el); });
+</script>
+
+<footer>
+  <a href="/">RAMEN W TOPへ戻る</a>
+  <div class="footer-copy">&copy; 2025 RAMEN W Group / North River Inc.</div>
+</footer>
+
+</body>
+</html>
