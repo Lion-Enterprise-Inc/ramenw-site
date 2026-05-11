@@ -56,11 +56,27 @@
   .nav-sw a{font-size:10px;padding:3px 8px;border-radius:3px}
   .nav-sw a.on{background:var(--teal);color:var(--white)}
 
+  /* HAMBURGER & DRAWER */
+  .hb{display:none;background:none;border:none;cursor:pointer;width:40px;height:40px;position:relative;z-index:120}
+  .hb i{display:block;width:20px;height:2px;background:var(--text);position:absolute;left:10px;transition:all 0.3s}
+  .hb i:nth-child(1){top:13px}.hb i:nth-child(2){top:19px}.hb i:nth-child(3){top:25px}
+  .hb.on i{background:var(--white)}
+  .hb.on i:nth-child(1){top:19px;transform:rotate(45deg)}.hb.on i:nth-child(2){opacity:0}.hb.on i:nth-child(3){top:19px;transform:rotate(-45deg)}
+  .dr{display:none;position:fixed;inset:0;z-index:110;background:rgba(14,14,14,0.97);flex-direction:column;align-items:center;justify-content:center;gap:10px}
+  .dr.open{display:flex}
+  .dr a{color:rgba(255,255,255,0.75);text-decoration:none;font-size:16px;letter-spacing:2px;padding:10px 20px}
+  .dr-sw{display:flex;gap:6px;background:rgba(255,255,255,0.07);border-radius:6px;padding:3px;margin-bottom:12px}
+  .dr-sw a{font-size:14px;padding:7px 18px;border-radius:4px}
+  .dr-sw a.on{background:var(--teal);color:var(--white)}
+
   /* WELCOME (Hero代わり、右側ファーストビュー) */
   .welcome{min-height:calc(100vh - 52px);display:flex;flex-direction:column;justify-content:center;padding:60px 40px;background:var(--cream)}
   .welcome-sub{font-size:10px;color:var(--teal);letter-spacing:4px;text-transform:uppercase;margin-bottom:8px}
   .welcome-title{font-family:'Noto Serif JP',serif;font-size:28px;font-weight:900;color:var(--text);letter-spacing:2px;line-height:1.6;margin-bottom:16px}
   .welcome-desc{font-size:14px;color:var(--text-sub);line-height:2.4;max-width:420px}
+  .welcome-desc p{margin-bottom:12px}
+  .welcome-desc p:last-child{margin-bottom:0}
+  .nb{display:inline-block}
   .welcome-scroll{font-size:10px;color:var(--text-sub);letter-spacing:3px;margin-top:40px;text-transform:uppercase}
 
   /* SECTIONS */
@@ -191,7 +207,9 @@
     .visual{position:relative;width:100%;height:70vh;padding-right:0;min-height:400px}
     .visual-logo{padding-right:0}
     .content{width:100%;float:none}
-    .hd{position:sticky;top:0}
+    .hd{position:fixed;top:0;left:0;right:0;z-index:100}
+    .nav{display:none}
+    .hb{display:block}
     .welcome{min-height:auto;padding:48px 24px}
     .sec{padding:48px 24px}
     .kd-item{grid-template-columns:1fr;gap:20px}
@@ -232,16 +250,22 @@
       <a href="#access">アクセス</a>
       <a href="/preview/recruit/">採用</a>
     </nav>
+    <button class="hb" id="hb" onclick="toggleDr()" aria-label="メニュー"><i></i><i></i><i></i></button>
   </header>
+  <nav class="dr" id="dr">
+    <div class="dr-sw"><a href="/preview/">本店</a><a href="/preview/shokudo/" class="on">食堂W</a></div>
+    <a href="#menu" onclick="closeDr()">メニュー</a>
+    <a href="#access" onclick="closeDr()">アクセス</a>
+    <a href="/preview/recruit/">採用</a>
+  </nav>
 
   <!-- WELCOME -->
   <div class="welcome">
     <div class="welcome-sub">All Original</div>
     <div class="welcome-title">すべて、オリジナルで。</div>
     <div class="welcome-desc">
-      らぁ麺食堂Wは、全メニューを完全オリジナルで開発。<br>
-      東京の名店の味を受け継ぐ本店とは異なるアプローチで、
-      福井の食材と正面から向き合い、この土地でしか生まれない味を追求しています。
+      <p>らぁ麺食堂Wは、<span class="nb">全メニューを完全オリジナルで開発。</span></p>
+      <p><span class="nb">東京の名店の味を受け継ぐ本店</span>とは異なるアプローチで、<span class="nb">福井の食材と正面から向き合い、</span><span class="nb">この土地でしか生まれない味</span>を追求しています。</p>
     </div>
     <div class="welcome-scroll">scroll ↓</div>
   </div>
@@ -459,6 +483,8 @@
 {"@context":"https://schema.org","@type":"Restaurant","name":"自家製麺 らぁ麺食堂W","url":"https://ramenw.jp/preview/shokudo/","telephone":"0776-97-9720","address":{"@type":"PostalAddress","streetAddress":"米松1-15-28","addressLocality":"福井市","addressRegion":"福井県","addressCountry":"JP"},"servesCuisine":"ラーメン"}
 </script>
 <script>
+function toggleDr(){document.getElementById('dr').classList.toggle('open');document.getElementById('hb').classList.toggle('on');document.body.style.overflow=document.getElementById('dr').classList.contains('open')?'hidden':''}
+function closeDr(){document.getElementById('dr').classList.remove('open');document.getElementById('hb').classList.remove('on');document.body.style.overflow=''}
 function toggleM(el){var b=el.nextElementSibling,t=el.querySelector('.mn-cat-t');b.classList.toggle('open');t.textContent=b.classList.contains('open')?'閉じる ▴':'もっと見る ▾'}
 var ob=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)e.target.classList.add('v')})},{threshold:0.1});
 document.querySelectorAll('.fi').forEach(function(el){ob.observe(el)});
