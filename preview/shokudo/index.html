@@ -481,8 +481,83 @@
 
 </div><!-- /full -->
 
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Restaurant","name":"自家製麺 らぁ麺食堂W","url":"https://ramenw.jp/preview/shokudo/","image":"https://ramenw.jp/preview/images/shokudo-main-01.jpg","telephone":"0776-97-9720","address":{"@type":"PostalAddress","streetAddress":"米松1-15-28","addressLocality":"福井市","addressRegion":"福井県","postalCode":"910-0851","addressCountry":"JP"},"servesCuisine":"ラーメン","openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Sunday","Monday","Tuesday","Wednesday","Thursday"],"opens":"11:00","closes":"22:00"},{"@type":"OpeningHoursSpecification","dayOfWeek":["Friday","Saturday"],"opens":"11:00","closes":"23:00"}]}
+<script type="application/ld+json" data-aeo="restaurant">
+{
+  "@context": [
+    "https://schema.org",
+    "https://nfg.ngraph.jp/schema/v1/context.jsonld"
+  ],
+  "@type": ["Restaurant", "nfg:RamenRestaurant"],
+  "@id": "https://ramenw.jp/preview/shokudo/#restaurant",
+  "name": "自家製麺 らぁ麺食堂W",
+  "alternateName": ["RAMEN W Shokudo", "らぁ麺食堂W"],
+  "description": "福井市のラーメン店 自家製麺 らぁ麺食堂W。全メニューオリジナル。自家製麺と福井の食材にこだわった一杯。",
+  "url": "https://ramenw.jp/preview/shokudo/",
+  "image": "https://ramenw.jp/preview/images/shokudo-main-01.jpg",
+  "telephone": "+81-776-97-9720",
+  "priceRange": "¥¥",
+  "servesCuisine": ["Ramen", "Japanese Noodles"],
+  "acceptsReservations": "False",
+  "currenciesAccepted": "JPY",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "米松1-15-28",
+    "addressLocality": "福井市",
+    "addressRegion": "福井県",
+    "postalCode": "910-0851",
+    "addressCountry": "JP"
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday"],
+      "opens": "11:00",
+      "closes": "22:00"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Friday", "Saturday"],
+      "opens": "11:00",
+      "closes": "23:00"
+    }
+  ],
+  "nfg:vadCertified": false,
+  "nfg:vadSource": "ai_inferred",
+  "nfg:confidenceScore": 0.8,
+  "nfg:culturalContext": "Originating ramen shop in Fukui featuring fully house-made noodles. All menu items are original recipes developed in-house, using Fukui-sourced ingredients.",
+  "hasMenu": {
+    "@type": "Menu",
+    "@id": "https://ramenw.jp/preview/shokudo/#menu",
+    "name": "Original Ramen Menu",
+    "description": "All menu items are house-made original recipes featuring locally-sourced Fukui ingredients.",
+    "hasMenuSection": [{
+      "@type": "MenuSection",
+      "name": "Signature Ramen",
+      "hasMenuItem": [{
+        "@type": ["MenuItem", "nfg:Dish"],
+        "name": "自家製麺 らぁ麺",
+        "alternateName": ["House-made Ramen"],
+        "description": "完全自家製麺。福井の食材で仕立てる原典のラーメン。",
+        "nfg:dishCategory": "ramen",
+        "nfg:mainIngredients": [
+          {
+            "@type": "nfg:Ingredient",
+            "name": "自家製麺",
+            "alternateName": ["House-made noodles"],
+            "nfg:provenance": "In-house production"
+          },
+          {
+            "@type": "nfg:Ingredient",
+            "name": "出汁",
+            "alternateName": ["Dashi broth"],
+            "nfg:provenance": "Fukui locally-sourced"
+          }
+        ],
+        "nfg:cookingMethods": ["simmer", "fresh_noodle_boil"]
+      }]
+    }]
+  }
+}
 </script>
 <script>
 function toggleDr(){document.getElementById('dr').classList.toggle('open');document.getElementById('hb').classList.toggle('on');document.body.style.overflow=document.getElementById('dr').classList.contains('open')?'hidden':''}
