@@ -57,9 +57,22 @@
 
   .appeal-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-top:40px; }
   .appeal-card { background:var(--white); border-radius:8px; padding:32px 24px; text-align:center; box-shadow:0 2px 12px rgba(0,0,0,0.04); }
-  .appeal-icon { font-size:36px; margin-bottom:12px; }
+  .appeal-num { font-family:'Noto Serif JP',serif; font-size:12px; font-weight:700; color:var(--red); letter-spacing:3px; margin-bottom:14px; }
+  .appeal-card.on-dark .appeal-num { color:var(--gold); }
   .appeal-card h3 { font-family:'Noto Serif JP',serif; font-size:18px; font-weight:700; margin-bottom:8px; }
   .appeal-card p { font-size:13px; color:var(--warm-gray); line-height:2; }
+
+  .stats-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:16px; text-align:center; }
+  .stat-num { font-family:'Noto Serif JP',serif; font-size:28px; font-weight:900; color:var(--red); }
+  .stat-num span { font-size:13px; font-weight:500; color:var(--dark); margin-left:2px; }
+  .stat-label { font-size:11px; color:var(--warm-gray); letter-spacing:1px; margin-top:6px; }
+
+  .flow-steps { display:flex; flex-direction:column; margin-top:32px; }
+  .flow-step { display:flex; gap:20px; align-items:flex-start; padding:20px 0; border-bottom:1px solid var(--light-gray); }
+  .flow-step:last-child { border-bottom:none; }
+  .flow-num { font-family:'Noto Serif JP',serif; font-size:24px; font-weight:900; color:var(--red); min-width:40px; }
+  .flow-text { font-size:14px; color:var(--warm-gray); line-height:1.9; }
+  .flow-text strong { color:var(--dark); font-size:15px; }
 
   .timeline { margin-top:40px; position:relative; padding-left:32px; }
   .timeline::before { content:''; position:absolute; left:8px; top:8px; bottom:8px; width:2px; background:rgba(255,255,255,0.1); }
@@ -126,6 +139,7 @@
     .hero h1 { font-size:28px; }
     .appeal-grid { grid-template-columns:1fr; }
     .job-grid { grid-template-columns:80px 1fr; }
+    .stats-grid { grid-template-columns:repeat(2,1fr); gap:24px; }
   }
 </style>
 </head>
@@ -161,25 +175,60 @@
   </div>
 </section>
 
+<section class="section" style="padding:40px 24px 0;">
+  <div class="section-inner">
+    <div class="stats-grid">
+      <div class="stat-item fade-up"><div class="stat-num">2017<span>年〜</span></div><div class="stat-label">創業</div></div>
+      <div class="stat-item fade-up"><div class="stat-num">28<span>名</span></div><div class="stat-label">グループスタッフ数</div></div>
+      <div class="stat-item fade-up"><div class="stat-num">1,872<span>人</span></div><div class="stat-label">Instagramフォロワー</div></div>
+      <div class="stat-item fade-up"><div class="stat-num">1,545<span>人</span></div><div class="stat-label">LINE公式登録者</div></div>
+    </div>
+  </div>
+</section>
+
 <section class="section">
   <div class="section-inner">
     <div class="section-label">Why W?</div>
     <h2 class="section-title">Wで働く魅力</h2>
     <div class="appeal-grid">
       <div class="appeal-card fade-up">
-        <div class="appeal-icon">&#x1F35C;</div>
+        <div class="appeal-num">01</div>
         <h3>まかない付き</h3>
         <p>Wグループ自慢のラーメンが毎日食べられます。これだけで価値あり。</p>
       </div>
       <div class="appeal-card fade-up">
-        <div class="appeal-icon">&#x1F4DA;</div>
+        <div class="appeal-num">02</div>
         <h3>未経験OK</h3>
         <p>飲食未経験でも丁寧に教えます。高校生・大学生・Wワークも歓迎。</p>
       </div>
       <div class="appeal-card fade-up">
-        <div class="appeal-icon">&#x1F697;</div>
+        <div class="appeal-num">03</div>
         <h3>車通勤OK</h3>
         <p>駐車場完備。福井の暮らしに合った働き方ができます。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-dark">
+  <div class="section-inner">
+    <div class="section-label">What You'll Do</div>
+    <h2 class="section-title">お店での仕事</h2>
+    <div class="appeal-grid">
+      <div class="appeal-card on-dark fade-up" style="background:rgba(255,255,255,0.04); box-shadow:none;">
+        <div class="appeal-num">01</div>
+        <h3 style="color:var(--white)">ホール</h3>
+        <p style="color:rgba(255,255,255,0.6)">接客・配膳・お会計。券売機やセルフオーダーを使っているので、接客の負担は少なめです。</p>
+      </div>
+      <div class="appeal-card on-dark fade-up" style="background:rgba(255,255,255,0.04); box-shadow:none;">
+        <div class="appeal-num">02</div>
+        <h3 style="color:var(--white)">製麺・仕込み</h3>
+        <p style="color:rgba(255,255,255,0.6)">自家製麺とスープの仕込み。レシピは決まっているので、未経験からでも一つずつ覚えていけます。</p>
+      </div>
+      <div class="appeal-card on-dark fade-up" style="background:rgba(255,255,255,0.04); box-shadow:none;">
+        <div class="appeal-num">03</div>
+        <h3 style="color:var(--white)">盛り付け</h3>
+        <p style="color:rgba(255,255,255,0.6)">低温調理のチャーシューや味玉、メンマなど、手間をかけた具材の仕上げを担当します。</p>
       </div>
     </div>
   </div>
@@ -210,6 +259,43 @@
   </div>
 </section>
 
+<section class="section">
+  <div class="section-inner">
+    <div class="section-label">Message</div>
+    <h2 class="section-title">店主から、応募を考えているあなたへ</h2>
+    <p style="font-size:14px;color:var(--warm-gray);line-height:2.2;max-width:640px">
+      一生懸命やった結果のミスや間違いは、一切怒りません。誰だってミスはしますから。<br><br>
+      単発のお仕事（タイミー）から働き始めて、そのまま社員になったスタッフもいます。まずは一度、うちの空気に触れてみてください。<br><br>
+      今、次のステップに向けて店を任せられる正社員を探しています。未経験からのスタートも歓迎です。
+    </p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-inner">
+    <div class="section-label">Flow</div>
+    <h2 class="section-title">応募から勤務開始まで</h2>
+    <div class="flow-steps">
+      <div class="flow-step fade-up">
+        <div class="flow-num">01</div>
+        <div class="flow-text"><strong>まずはご連絡</strong><br>電話・LINE・応募フォームでお気軽に。まずは話だけでもOKです。</div>
+      </div>
+      <div class="flow-step fade-up">
+        <div class="flow-num">02</div>
+        <div class="flow-text"><strong>顔合わせ・お店見学</strong><br>タイミーでの単発体験から始めることもできます。</div>
+      </div>
+      <div class="flow-step fade-up">
+        <div class="flow-num">03</div>
+        <div class="flow-text"><strong>シフト相談</strong><br>週1日・1日4時間〜。希望シフトは週ごとに提出できます。</div>
+      </div>
+      <div class="flow-step fade-up">
+        <div class="flow-num">04</div>
+        <div class="flow-text"><strong>勤務スタート</strong><br>未経験でも一つずつ丁寧に教えます。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="section section-black" id="positions">
   <div class="section-inner">
     <div class="section-label">Open Positions</div>
@@ -225,11 +311,11 @@
           <span class="badge badge-full">正社員</span>店長候補 / 調理責任者
         </div>
         <div class="job-label">時間</div>
-        <div class="job-value">10:00〜22:00の間でシフト制<br>週2日〜OK（アルバイト）</div>
+        <div class="job-value">平日昼 11:00〜15:00（火曜以外）／土日祝 昼11:00〜15:00・夜17:00〜21:30の間でシフト制<br>週1日〜OK。アプリで1週間ごとに希望シフトを提出できます</div>
         <div class="job-label">給与</div>
-        <div class="job-value">アルバイト：時給1,000円〜<br>正社員：月給22万円〜（経験考慮）</div>
+        <div class="job-value">アルバイト：時給1,060円〜（条件により昇給）<br>正社員：月給200,000円〜250,000円（経験・能力により優遇）</div>
         <div class="job-label">待遇</div>
-        <div class="job-value" style="border-bottom:none;">まかない付き / 交通費支給 / 制服貸与 / 昇給あり / 駐車場あり</div>
+        <div class="job-value" style="border-bottom:none;">まかない付き / 交通費支給 / 制服貸与 / 昇給あり / 駐車場あり / 週休2日・連休可（正社員）/ 独立希望歓迎</div>
       </div>
     </div>
 
@@ -243,11 +329,11 @@
           <span class="badge badge-full">正社員</span>調理スタッフ
         </div>
         <div class="job-label">時間</div>
-        <div class="job-value">10:00〜23:00の間でシフト制<br>週2日〜OK（アルバイト）</div>
+        <div class="job-value">平日昼 11:00〜15:00（火曜以外）／土日祝 昼11:00〜15:00・夜17:00〜21:30の間でシフト制<br>週1日〜・1日4時間〜OK。1週間ごとに希望シフトを提出できます</div>
         <div class="job-label">給与</div>
-        <div class="job-value">アルバイト：時給1,000円〜<br>正社員：月給22万円〜（経験考慮）</div>
+        <div class="job-value">アルバイト：時給1,060円〜1,200円<br>正社員：月給200,000円〜250,000円（経験・能力により優遇）</div>
         <div class="job-label">待遇</div>
-        <div class="job-value" style="border-bottom:none;">まかない付き / 交通費支給 / 制服貸与 / 昇給あり / 駐車場あり</div>
+        <div class="job-value" style="border-bottom:none;">まかない付き（学生は無料、他は半額） / 交通費支給 / 制服貸与 / 昇給あり / 駐車場あり / 週休2日・連休可（正社員）/ 独立希望歓迎<br>セルフオーダー導入で接客少なめ、未経験の方も安心です</div>
       </div>
     </div>
   </div>
@@ -299,7 +385,7 @@
 
     <div style="text-align:center; margin-top:32px; padding-top:24px; border-top:1px solid rgba(255,255,255,0.08);">
       <p style="font-size:13px; color:rgba(255,255,255,0.35); margin-bottom:12px;">電話でも応募できます</p>
-      <a href="tel:0776-50-2940" class="apply-btn apply-btn--tel" style="display:inline-flex;">0776-50-2940</a>
+      <a href="tel:090-9445-9254" class="apply-btn apply-btn--tel" style="display:inline-flex;">090-9445-9254（採用担当）</a>
     </div>
   </div>
 </section>
