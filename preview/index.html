@@ -185,21 +185,22 @@
   .mn-row-n{color:var(--text-sub)}
   .mn-row-p{color:var(--red);font-weight:700;white-space:nowrap;margin-left:12px}
 
-  /* OWNER'S KODAWARI */
-  .ok-block{position:relative;overflow:hidden;margin-bottom:3px}
-  .ok-photo{width:100%;min-height:400px;overflow:hidden;position:relative;display:flex;align-items:center;justify-content:center}
-  .ok-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;filter:grayscale(1) brightness(0.4);transition:filter 0.5s}
-  .ok-photo:hover img{filter:grayscale(0.5) brightness(0.45)}
-  .ok-photo-content{
-    position:relative;z-index:2;padding:60px 48px;max-width:800px;
-  }
-  .ok-num-big{font-size:12px;color:var(--red);letter-spacing:3px;font-weight:700;margin-bottom:12px}
-  .ok-quote{
-    font-family:'Noto Serif JP',serif;font-size:30px;font-weight:900;
-    color:var(--white);letter-spacing:2px;line-height:1.7;margin-bottom:20px;
-  }
-  .ok-quote-mark{color:var(--red);font-size:40px;line-height:0;vertical-align:middle;margin-right:4px}
-  .ok-desc{font-size:14px;color:rgba(255,255,255,0.65);line-height:2.4;max-width:560px}
+  /* OWNER'S KODAWARI — 写真なし・タイポグラフィ構成 */
+  .okd{background:var(--black);padding:80px 32px;position:relative;overflow:hidden}
+  .okd-inner{max-width:1000px;margin:0 auto}
+  .okd-head{padding-bottom:40px}
+  .okd-item{position:relative;display:grid;grid-template-columns:1fr auto;gap:56px;align-items:center;padding:64px 0;border-top:1px solid rgba(255,255,255,0.08)}
+  .okd-kanji{position:absolute;left:-30px;bottom:-40px;font-family:'Noto Serif JP',serif;font-size:280px;font-weight:900;line-height:1;color:rgba(184,148,46,0.06);pointer-events:none;user-select:none;z-index:0}
+  .okd-kanji-w{font-family:'Zen Antique Soft',serif;color:rgba(196,30,46,0.07)}
+  .okd-quote{grid-column:2;grid-row:1;writing-mode:vertical-rl;font-family:'Noto Serif JP',serif;font-size:25px;font-weight:900;letter-spacing:5px;line-height:2;color:var(--white);position:relative;z-index:1;align-self:center}
+  .okd-qm{color:var(--red)}
+  .okd-body{grid-column:1;grid-row:1;position:relative;z-index:1}
+  .okd-num{font-size:12px;color:var(--red);letter-spacing:3px;font-weight:700;margin-bottom:14px}
+  .okd-desc{font-size:14px;color:rgba(255,255,255,0.65);line-height:2.4;max-width:560px}
+  .okd-stats{display:flex;flex-wrap:wrap;gap:16px 48px;margin-top:30px;border-top:1px solid rgba(255,255,255,0.08);padding-top:22px;max-width:560px}
+  .okd-stat-n{font-family:'Noto Serif JP',serif;font-size:34px;font-weight:900;color:var(--gold);line-height:1.2}
+  .okd-stat-n em{font-style:normal;font-size:14px;margin-left:1px}
+  .okd-stat-l{display:block;font-size:12px;color:rgba(255,255,255,0.4);letter-spacing:1px;margin-top:4px}
 
   /* PHOTOS */
   .ph{display:grid;grid-template-columns:repeat(6,1fr);margin-top:60px}
@@ -275,9 +276,14 @@
     .kd-cell{padding:32px 20px}
     .og-grid{grid-template-columns:1fr}
     .og-card{aspect-ratio:4/3}
-    .ok-photo{min-height:300px}
-    .ok-photo-content{padding:40px 20px}
-    .ok-quote{font-size:22px}
+    .okd{padding:64px 20px}
+    .okd-item{grid-template-columns:1fr;gap:0;padding:48px 0}
+    .okd-quote{grid-column:1;grid-row:1;writing-mode:horizontal-tb;font-size:21px;letter-spacing:2px;line-height:1.8;margin-bottom:18px}
+    .okd-quote br{display:none}
+    .okd-body{grid-column:1;grid-row:2}
+    .okd-kanji{font-size:180px;left:auto;right:-30px;bottom:-20px}
+    .okd-stats{gap:14px 32px}
+    .okd-stat-n{font-size:28px}
     .mn-list{grid-template-columns:1fr}
     .ph{grid-template-columns:repeat(3,1fr)}
     .ac-grid{grid-template-columns:1fr}
@@ -476,40 +482,55 @@
 </section>
 
 <!-- OWNER'S KODAWARI -->
-<div class="ok-block fi">
-  <div class="ok-photo">
-    <img src="images/kodawari-soup.jpg" alt="スープを注ぐ" loading="lazy" style="object-position:center 60%">
-    <div class="ok-photo-content" style="text-align:center;margin:0 auto;">
-      <div class="s-label" style="color:rgba(255,255,255,0.5);">Owner's Philosophy</div>
-      <h2 class="ok-quote" style="margin-bottom:24px;">店主の、こだわり。</h2>
-      <div class="ok-num-big">01</div>
-      <div class="ok-quote"><span class="ok-quote-mark">"</span>麺屋が、麺で手を抜いてどうする。</div>
-      <div class="ok-desc">「ど・みそ」だけは東京本店指定の浅草開化楼の麺を直送。それ以外は全店、麺は自家製。小麦は北海道産のみ。かん水を抑えるために食用シルクジェルを練り込んだ&ldquo;シルク麺&rdquo;は、卵不使用でしなやかで喉越しがいい。温度と湿度を一定に保った製麺場で、納得の一本になるまで五十回以上打ち直した。</div>
+<section class="okd">
+  <div class="okd-inner">
+    <div class="okd-head fi">
+      <div class="s-label" style="color:var(--red);">Owner's Philosophy</div>
+      <h2 class="s-title" style="color:var(--white);">店主の、こだわり。</h2>
     </div>
-  </div>
-</div>
 
-<div class="ok-block fi">
-  <div class="ok-photo">
-    <img src="images/kodawari-ingredients.jpg" alt="食材の仕込み" loading="lazy">
-    <div class="ok-photo-content" style="text-align:center;margin:0 auto;">
-      <div class="ok-num-big">02</div>
-      <div class="ok-quote"><span class="ok-quote-mark">"</span>冷凍しない国産豚。だから、旨い。</div>
-      <div class="ok-desc" style="margin:0 auto;">チャーシューは、一度も冷凍していない国産豚だけ。冷凍特有のドリップも臭みもない。バラ肉はタレに一日漬けてじっくり煮込み、ロース肉は低温でしっとりと。一杯ごとに、スープと麺に一番合う肉を合わせている。</div>
+    <div class="okd-item fi">
+      <span class="okd-kanji" aria-hidden="true">麺</span>
+      <h3 class="okd-quote"><span class="okd-qm">「</span>麺屋が、麺で<br>手を抜いてどうする。<span class="okd-qm">」</span></h3>
+      <div class="okd-body">
+        <div class="okd-num">01 &mdash; NOODLES</div>
+        <p class="okd-desc">「ど・みそ」だけは東京本店指定の浅草開化楼の麺を直送。それ以外は全店、麺は自家製。小麦は北海道産のみ。かん水を抑えるために食用シルクジェルを練り込んだ&ldquo;シルク麺&rdquo;は、卵不使用でしなやかで喉越しがいい。温度と湿度を一定に保った製麺場で、納得の一本になるまで五十回以上打ち直した。</p>
+        <div class="okd-stats">
+          <div class="okd-stat"><span class="okd-stat-n">50<em>回</em></span><span class="okd-stat-l">納得までの打ち直し</span></div>
+          <div class="okd-stat"><span class="okd-stat-n">100<em>%</em></span><span class="okd-stat-l">北海道産小麦</span></div>
+          <div class="okd-stat"><span class="okd-stat-n">0</span><span class="okd-stat-l">卵、不使用</span></div>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
 
-<div class="ok-block fi">
-  <div class="ok-photo">
-    <img src="images/store-interior.jpg" alt="店内" loading="lazy">
-    <div class="ok-photo-content" style="text-align:center;margin:0 auto;">
-      <div class="ok-num-big">03</div>
-      <div class="ok-quote"><span class="ok-quote-mark">"</span>手間は、愛情。</div>
-      <div class="ok-desc" style="margin:0 auto;">本物のみそラーメン「ど・みそ」と、濃厚豚骨魚介「庄の」。東京の名店から受け継いだ二つの味を、福井で心ゆくまで——それが「W」の由来。手を抜かない、嘘をつかない。当たり前を、一杯ずつ積み重ねている。</div>
+    <div class="okd-item fi">
+      <span class="okd-kanji" aria-hidden="true">豚</span>
+      <h3 class="okd-quote"><span class="okd-qm">「</span>冷凍しない国産豚。<br>だから、旨い。<span class="okd-qm">」</span></h3>
+      <div class="okd-body">
+        <div class="okd-num">02 &mdash; CHASHU</div>
+        <p class="okd-desc">チャーシューは、一度も冷凍していない国産豚だけ。冷凍特有のドリップも臭みもない。バラ肉はタレに一日漬けてじっくり煮込み、ロース肉は低温でしっとりと。一杯ごとに、スープと麺に一番合う肉を合わせている。</p>
+        <div class="okd-stats">
+          <div class="okd-stat"><span class="okd-stat-n">0<em>回</em></span><span class="okd-stat-l">冷凍、しない</span></div>
+          <div class="okd-stat"><span class="okd-stat-n">100<em>%</em></span><span class="okd-stat-l">国産豚</span></div>
+          <div class="okd-stat"><span class="okd-stat-n">一日</span><span class="okd-stat-l">タレに漬け込む</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="okd-item fi">
+      <span class="okd-kanji okd-kanji-w" aria-hidden="true">W</span>
+      <h3 class="okd-quote"><span class="okd-qm">「</span>手間は、愛情。<span class="okd-qm">」</span></h3>
+      <div class="okd-body">
+        <div class="okd-num">03 &mdash; ORIGIN OF &ldquo;W&rdquo;</div>
+        <p class="okd-desc">本物のみそラーメン「ど・みそ」と、濃厚豚骨魚介「庄の」。東京の名店から受け継いだ二つの味を、福井で心ゆくまで——それが「W」の由来。手を抜かない、嘘をつかない。当たり前を、一杯ずつ積み重ねている。</p>
+        <div class="okd-stats">
+          <div class="okd-stat"><span class="okd-stat-n">2<em>つ</em></span><span class="okd-stat-l">受け継いだ名店の味</span></div>
+          <div class="okd-stat"><span class="okd-stat-n">1<em>杯</em></span><span class="okd-stat-l">ずつ、積み重ねる</span></div>
+        </div>
+      </div>
     </div>
   </div>
-</div>
+</section>
 
 <!-- PHOTOS -->
 <div class="ph fi">

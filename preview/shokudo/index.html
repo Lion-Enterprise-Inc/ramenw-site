@@ -141,15 +141,21 @@
   .mn-row-p{color:var(--teal);font-weight:700}
 
   /* OWNER'S KODAWARI */
-  .ok-block{position:relative;overflow:hidden;margin-bottom:3px}
-  .ok-photo{width:100%;min-height:340px;overflow:hidden;position:relative;display:flex;align-items:center;justify-content:center}
-  .ok-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:grayscale(1) brightness(0.4);transition:filter 0.5s}
-  .ok-photo:hover img{filter:grayscale(0.5) brightness(0.45)}
-  .ok-photo-c{position:relative;z-index:2;padding:48px 32px;text-align:center;max-width:480px;margin:0 auto}
-  .ok-num{font-size:12px;color:var(--teal);letter-spacing:3px;font-weight:700;margin-bottom:8px}
-  .ok-quote{font-family:'Noto Serif JP',serif;font-size:22px;font-weight:900;color:var(--white);letter-spacing:1px;line-height:1.7;margin-bottom:12px}
-  .ok-quote-mark{color:var(--teal);font-size:30px;line-height:0;vertical-align:middle;margin-right:4px}
-  .ok-desc{font-size:13px;color:rgba(255,255,255,0.6);line-height:2.2}
+  /* OWNER'S KODAWARI — 写真なし・タイポグラフィ構成 */
+  .okd{background:var(--black);padding:72px 32px;position:relative;overflow:hidden}
+  .okd-inner{max-width:1000px;margin:0 auto}
+  .okd-head{padding-bottom:32px}
+  .okd-item{position:relative;display:grid;grid-template-columns:1fr auto;gap:56px;align-items:center;padding:56px 0;border-top:1px solid rgba(255,255,255,0.08)}
+  .okd-kanji{position:absolute;left:-30px;bottom:-40px;font-family:'Noto Serif JP',serif;font-size:260px;font-weight:900;line-height:1;color:rgba(42,122,107,0.09);pointer-events:none;user-select:none;z-index:0}
+  .okd-quote{grid-column:2;grid-row:1;writing-mode:vertical-rl;font-family:'Noto Serif JP',serif;font-size:23px;font-weight:900;letter-spacing:5px;line-height:2;color:var(--white);position:relative;z-index:1;align-self:center}
+  .okd-qm{color:var(--teal)}
+  .okd-body{grid-column:1;grid-row:1;position:relative;z-index:1}
+  .okd-num{font-size:12px;color:var(--teal);letter-spacing:3px;font-weight:700;margin-bottom:14px}
+  .okd-desc{font-size:13px;color:rgba(255,255,255,0.6);line-height:2.3;max-width:560px}
+  .okd-stats{display:flex;flex-wrap:wrap;gap:16px 48px;margin-top:26px;border-top:1px solid rgba(255,255,255,0.08);padding-top:20px;max-width:560px}
+  .okd-stat-n{font-family:'Noto Serif JP',serif;font-size:32px;font-weight:900;color:var(--gold);line-height:1.2}
+  .okd-stat-n em{font-style:normal;font-size:14px;margin-left:1px}
+  .okd-stat-l{display:block;font-size:12px;color:rgba(255,255,255,0.4);letter-spacing:1px;margin-top:4px}
 
   /* PHOTOS */
   .ph{display:grid;grid-template-columns:repeat(6,1fr);margin-top:48px}
@@ -218,8 +224,14 @@
     .kd-item:nth-child(even){direction:ltr}
     .sg-grid{grid-template-columns:1fr}
     .sg-card{aspect-ratio:16/9}
-    .ok-photo-c{padding:36px 20px}
-    .ok-quote{font-size:18px}
+    .okd{padding:56px 20px}
+    .okd-item{grid-template-columns:1fr;gap:0;padding:44px 0}
+    .okd-quote{grid-column:1;grid-row:1;writing-mode:horizontal-tb;font-size:19px;letter-spacing:2px;line-height:1.8;margin-bottom:16px}
+    .okd-quote br{display:none}
+    .okd-body{grid-column:1;grid-row:2}
+    .okd-kanji{font-size:160px;left:auto;right:-30px;bottom:-20px}
+    .okd-stats{gap:14px 28px}
+    .okd-stat-n{font-size:26px}
     .ph{grid-template-columns:repeat(3,1fr)}
     .full .ac-grid{grid-template-columns:1fr}
     .ac-grid{grid-template-columns:1fr}
@@ -369,38 +381,50 @@
   </div>
 
   <!-- OWNER'S KODAWARI -->
-  <div class="ok-block fi">
-    <div class="ok-photo">
-      <img src="../images/kodawari-soup.jpg" alt="スープ" style="object-position:center 60%">
-      <div class="ok-photo-c">
-        <div class="sec-label" style="color:rgba(255,255,255,0.5)">Owner's Philosophy</div>
-        <div class="ok-quote" style="margin-bottom:20px">店主の、こだわり。</div>
-        <div class="ok-num">01</div>
-        <div class="ok-quote"><span class="ok-quote-mark">"</span>手間は愛情。それに尽きます。</div>
-        <div class="ok-desc">効率だけを考えるなら、近道はいくらでもあります。それでも手間をかけるのは、その先にある「美味しかった」の一言のため。素材にも、お客様にも、正直でありたいと思っています。</div>
+  <section class="okd">
+    <div class="okd-inner">
+      <div class="okd-head fi">
+        <div class="sec-label">Owner's Philosophy</div>
+        <div class="sec-title" style="color:var(--white);margin-bottom:0">店主の、こだわり。</div>
+      </div>
+
+      <div class="okd-item fi">
+        <span class="okd-kanji" aria-hidden="true">手</span>
+        <div class="okd-quote"><span class="okd-qm">「</span>手間は愛情。<br>それに尽きます。<span class="okd-qm">」</span></div>
+        <div class="okd-body">
+          <div class="okd-num">01 &mdash; PHILOSOPHY</div>
+          <div class="okd-desc">効率だけを考えるなら、近道はいくらでもあります。それでも手間をかけるのは、その先にある「美味しかった」の一言のため。素材にも、お客様にも、正直でありたいと思っています。</div>
+        </div>
+      </div>
+
+      <div class="okd-item fi">
+        <span class="okd-kanji" aria-hidden="true">麺</span>
+        <div class="okd-quote"><span class="okd-qm">「</span>北海道産小麦と、<br>山形産シルクパウダー。<span class="okd-qm">」</span></div>
+        <div class="okd-body">
+          <div class="okd-num">02 &mdash; NOODLES</div>
+          <div class="okd-desc">麺は北海道産の小麦だけを使用。かんすいの量を抑えるために山形産のシルクパウダーを練り込んだ「シルク麺」で、しなやかで喉越しの良い一杯に。麺に卵は一切使っていないので、卵アレルギーの方にも安心です。</div>
+          <div class="okd-stats">
+            <div class="okd-stat"><span class="okd-stat-n">100<em>%</em></span><span class="okd-stat-l">北海道産小麦</span></div>
+            <div class="okd-stat"><span class="okd-stat-n">0</span><span class="okd-stat-l">卵、不使用</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="okd-item fi">
+        <span class="okd-kanji" aria-hidden="true">汁</span>
+        <div class="okd-quote"><span class="okd-qm">「</span>スープは、週に一度。<br>八時間かけて。<span class="okd-qm">」</span></div>
+        <div class="okd-body">
+          <div class="okd-num">03 &mdash; SOUP</div>
+          <div class="okd-desc">スープはすべて店内で炊いています。一番時間のかかる仕込みは週に1回、8時間かけてじっくりと。それで1週間分。営業時間中はずっと火を入れ続け、早朝や深夜に一人で仕込むような無理はさせません。</div>
+          <div class="okd-stats">
+            <div class="okd-stat"><span class="okd-stat-n">8<em>時間</em></span><span class="okd-stat-l">かける仕込み</span></div>
+            <div class="okd-stat"><span class="okd-stat-n">週1<em>回</em></span><span class="okd-stat-l">まとめて丁寧に</span></div>
+            <div class="okd-stat"><span class="okd-stat-n">100<em>%</em></span><span class="okd-stat-l">店内で炊く</span></div>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-  <div class="ok-block fi">
-    <div class="ok-photo">
-      <img src="../images/shokudo-main-02.jpg" alt="自家製麺">
-      <div class="ok-photo-c">
-        <div class="ok-num">02</div>
-        <div class="ok-quote"><span class="ok-quote-mark">"</span>北海道産小麦と、山形産シルクパウダー。</div>
-        <div class="ok-desc">麺は北海道産の小麦だけを使用。かんすいの量を抑えるために山形産のシルクパウダーを練り込んだ「シルク麺」で、しなやかで喉越しの良い一杯に。麺に卵は一切使っていないので、卵アレルギーの方にも安心です。</div>
-      </div>
-    </div>
-  </div>
-  <div class="ok-block fi">
-    <div class="ok-photo">
-      <img src="../images/store-kitchen.jpg" alt="厨房">
-      <div class="ok-photo-c">
-        <div class="ok-num">03</div>
-        <div class="ok-quote"><span class="ok-quote-mark">"</span>スープは、週に一度。8時間かけて。</div>
-        <div class="ok-desc">スープはすべて店内で炊いています。一番時間のかかる仕込みは週に1回、8時間かけてじっくりと。それで1週間分。営業時間中はずっと火を入れ続け、早朝や深夜に一人で仕込むような無理はさせません。</div>
-      </div>
-    </div>
-  </div>
+  </section>
 
   <!-- PHOTOS -->
   <div class="ph fi">
