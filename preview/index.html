@@ -195,12 +195,9 @@
   .okd-quote{grid-column:2;grid-row:1;writing-mode:vertical-rl;font-family:'Noto Serif JP',serif;font-size:25px;font-weight:900;letter-spacing:5px;line-height:2;color:var(--white);position:relative;z-index:1;align-self:center}
   .okd-qm{color:var(--red)}
   .okd-body{grid-column:1;grid-row:1;position:relative;z-index:1}
-  .okd-num{font-size:12px;color:var(--red);letter-spacing:3px;font-weight:700;margin-bottom:14px}
-  .okd-desc{font-size:14px;color:rgba(255,255,255,0.65);line-height:2.4;max-width:560px}
-  .okd-stats{display:flex;flex-wrap:wrap;gap:16px 48px;margin-top:30px;border-top:1px solid rgba(255,255,255,0.08);padding-top:22px;max-width:560px}
-  .okd-stat-n{font-family:'Noto Serif JP',serif;font-size:34px;font-weight:900;color:var(--gold);line-height:1.2}
-  .okd-stat-n em{font-style:normal;font-size:14px;margin-left:1px}
-  .okd-stat-l{display:block;font-size:12px;color:rgba(255,255,255,0.4);letter-spacing:1px;margin-top:4px}
+  .okd-no{font-family:'Noto Serif JP',serif;font-size:14px;font-weight:700;color:var(--gold);letter-spacing:8px;margin-bottom:18px}
+  .okd-desc{font-size:14px;color:rgba(255,255,255,0.65);line-height:2.6;max-width:520px}
+  .okd-em{font-style:normal;font-weight:700;color:rgba(255,255,255,0.92);text-emphasis:filled circle rgba(184,148,46,0.85);-webkit-text-emphasis:filled circle rgba(184,148,46,0.85)}
 
   /* PHOTOS */
   .ph{display:grid;grid-template-columns:repeat(6,1fr);margin-top:60px}
@@ -282,8 +279,6 @@
     .okd-quote br{display:none}
     .okd-body{grid-column:1;grid-row:2}
     .okd-kanji{font-size:180px;left:auto;right:-30px;bottom:-20px}
-    .okd-stats{gap:14px 32px}
-    .okd-stat-n{font-size:28px}
     .mn-list{grid-template-columns:1fr}
     .ph{grid-template-columns:repeat(3,1fr)}
     .ac-grid{grid-template-columns:1fr}
@@ -493,13 +488,8 @@
       <span class="okd-kanji" aria-hidden="true">麺</span>
       <h3 class="okd-quote"><span class="okd-qm">「</span>麺屋が、麺で<br>手を抜いてどうする。<span class="okd-qm">」</span></h3>
       <div class="okd-body">
-        <div class="okd-num">01 &mdash; NOODLES</div>
-        <p class="okd-desc">「ど・みそ」だけは東京本店指定の浅草開化楼の麺を直送。それ以外は全店、麺は自家製。小麦は北海道産のみ。かん水を抑えるために食用シルクジェルを練り込んだ&ldquo;シルク麺&rdquo;は、卵不使用でしなやかで喉越しがいい。温度と湿度を一定に保った製麺場で、納得の一本になるまで五十回以上打ち直した。</p>
-        <div class="okd-stats">
-          <div class="okd-stat"><span class="okd-stat-n">50<em>回</em></span><span class="okd-stat-l">納得までの打ち直し</span></div>
-          <div class="okd-stat"><span class="okd-stat-n">100<em>%</em></span><span class="okd-stat-l">北海道産小麦</span></div>
-          <div class="okd-stat"><span class="okd-stat-n">0</span><span class="okd-stat-l">卵、不使用</span></div>
-        </div>
+        <div class="okd-no">其の一</div>
+        <p class="okd-desc">「ど・みそ」だけは東京本店指定の浅草開化楼の麺を直送。それ以外は全店、麺は自家製。小麦は北海道産のみ。かん水を抑えるために食用シルクジェルを練り込んだ&ldquo;シルク麺&rdquo;は、卵不使用でしなやかで喉越しがいい。温度と湿度を一定に保った製麺場で、納得の一本になるまで<em class="okd-em">五十回以上打ち直した</em>。</p>
       </div>
     </div>
 
@@ -507,13 +497,8 @@
       <span class="okd-kanji" aria-hidden="true">豚</span>
       <h3 class="okd-quote"><span class="okd-qm">「</span>冷凍しない国産豚。<br>だから、旨い。<span class="okd-qm">」</span></h3>
       <div class="okd-body">
-        <div class="okd-num">02 &mdash; CHASHU</div>
-        <p class="okd-desc">チャーシューは、一度も冷凍していない国産豚だけ。冷凍特有のドリップも臭みもない。バラ肉はタレに一日漬けてじっくり煮込み、ロース肉は低温でしっとりと。一杯ごとに、スープと麺に一番合う肉を合わせている。</p>
-        <div class="okd-stats">
-          <div class="okd-stat"><span class="okd-stat-n">0<em>回</em></span><span class="okd-stat-l">冷凍、しない</span></div>
-          <div class="okd-stat"><span class="okd-stat-n">100<em>%</em></span><span class="okd-stat-l">国産豚</span></div>
-          <div class="okd-stat"><span class="okd-stat-n">一日</span><span class="okd-stat-l">タレに漬け込む</span></div>
-        </div>
+        <div class="okd-no">其の二</div>
+        <p class="okd-desc">チャーシューは、<em class="okd-em">一度も冷凍していない国産豚だけ</em>。冷凍特有のドリップも臭みもない。バラ肉はタレに一日漬けてじっくり煮込み、ロース肉は低温でしっとりと。一杯ごとに、スープと麺に一番合う肉を合わせている。</p>
       </div>
     </div>
 
@@ -521,12 +506,8 @@
       <span class="okd-kanji okd-kanji-w" aria-hidden="true">W</span>
       <h3 class="okd-quote"><span class="okd-qm">「</span>手間は、愛情。<span class="okd-qm">」</span></h3>
       <div class="okd-body">
-        <div class="okd-num">03 &mdash; ORIGIN OF &ldquo;W&rdquo;</div>
-        <p class="okd-desc">本物のみそラーメン「ど・みそ」と、濃厚豚骨魚介「庄の」。東京の名店から受け継いだ二つの味を、福井で心ゆくまで——それが「W」の由来。手を抜かない、嘘をつかない。当たり前を、一杯ずつ積み重ねている。</p>
-        <div class="okd-stats">
-          <div class="okd-stat"><span class="okd-stat-n">2<em>つ</em></span><span class="okd-stat-l">受け継いだ名店の味</span></div>
-          <div class="okd-stat"><span class="okd-stat-n">1<em>杯</em></span><span class="okd-stat-l">ずつ、積み重ねる</span></div>
-        </div>
+        <div class="okd-no">其の三</div>
+        <p class="okd-desc">本物のみそラーメン「ど・みそ」と、濃厚豚骨魚介「庄の」。東京の名店から受け継いだ二つの味を、福井で心ゆくまで——それが「W」の由来。<em class="okd-em">手を抜かない、嘘をつかない</em>。当たり前を、一杯ずつ積み重ねている。</p>
       </div>
     </div>
   </div>
