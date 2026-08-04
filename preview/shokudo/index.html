@@ -48,6 +48,7 @@
   .content{width:580px;float:right;position:relative;z-index:1;background:var(--cream)}
 
   /* HEADER (右側内) */
+  html{overflow-x:hidden}
   .hd{background:rgba(248,245,239,0.95);padding:16px 24px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:50;backdrop-filter:blur(4px)}
   .hd-logo{font-family:'Zen Antique Soft',serif;font-size:16px;color:var(--text);text-decoration:none;letter-spacing:2px}
   .hd-logo span{color:var(--teal)}
@@ -238,9 +239,9 @@
 <!-- LEFT: FIXED VISUAL -->
 <div class="visual">
   <div class="visual-slides">
-    <div class="visual-slide on" style="background-image:url('../images/shokudo-main-01.jpg')"></div>
-    <div class="visual-slide" style="background-image:url('../images/noodles.jpg')"></div>
-    <div class="visual-slide" style="background-image:url('../images/store-interior.jpg')"></div>
+    <div class="visual-slide on" style="background-image:url('../images/shokudo/dish-toripaitan-lift.jpg')"></div>
+    <div class="visual-slide" style="background-image:url('../images/shokudo/exterior-night.jpg')"></div>
+    <div class="visual-slide" style="background-image:url('../images/shokudo/interior-counter.jpg')"></div>
   </div>
   <div class="visual-logo">
     <div class="visual-logo-text">自家製麺 らぁ麺食堂 W</div>
@@ -289,7 +290,7 @@
     <div class="sec-title">ゼロから創る、自分たちだけの一杯。</div>
 
     <div class="kd-item fi">
-      <div class="kd-img"><img src="../images/shokudo-main-02.jpg" alt="自家製麺" loading="lazy"></div>
+      <div class="kd-img"><img src="../images/shokudo/dish-shio-lift.jpg" alt="自家製シルク麺" loading="lazy"></div>
       <div>
         <div class="kd-num">01 — Jikaseimen</div>
         <div class="kd-name">毎日、店内で製麺</div>
@@ -297,7 +298,7 @@
       </div>
     </div>
     <div class="kd-item fi">
-      <div class="kd-img"><img src="../images/kodawari-ingredients.jpg" alt="福井の食材" loading="lazy"></div>
+      <div class="kd-img"><img src="../images/shokudo/dish-shio.jpg" alt="福井の食材" loading="lazy"></div>
       <div>
         <div class="kd-num">02 — Local Ingredients</div>
         <div class="kd-name">福井の食材</div>
@@ -305,11 +306,11 @@
       </div>
     </div>
     <div class="kd-item fi">
-      <div class="kd-img"><img src="../images/kodawari-soup.jpg" alt="オリジナル" loading="lazy"></div>
+      <div class="kd-img"><img src="../images/shokudo/interior-noren.jpg" alt="店内" loading="lazy"></div>
       <div>
         <div class="kd-num">03 — Original Menu</div>
         <div class="kd-name">全メニュー、オリジナル</div>
-        <div class="kd-desc">羽二重中華そば、濃厚鶏白湯、煮干しらーめん。すべて食堂Wだけのメニュー。他のどこにもない味を目指しています。</div>
+        <div class="kd-desc">羽二重中華そば、濃厚鶏白湯、まぜそば。すべて食堂Wだけのメニュー。他のどこにもない味を目指しています。</div>
       </div>
     </div>
   </div>
@@ -320,26 +321,26 @@
     <div class="sec-title">三つの看板。</div>
     <div class="sg-grid">
       <div class="sg-card">
-        <img src="../images/shokudo-main-02.jpg" alt="羽二重中華そば" loading="lazy">
+        <img src="../images/shokudo/dish-toripaitan-lift.jpg" alt="濃厚鶏白湯らーめん" loading="lazy">
         <div class="sg-card-body">
-          <div class="sg-card-name">羽二重中華そば</div>
-          <div class="sg-card-desc">自家製麺 × 地鶏スープ</div>
+          <div class="sg-card-name">【濃厚】鶏白湯らーめん</div>
+          <div class="sg-card-desc">平打ち中太のシルク麺</div>
+          <div class="sg-card-price">¥950</div>
+        </div>
+      </div>
+      <div class="sg-card">
+        <img src="../images/shokudo/dish-shoyu.jpg" alt="羽二重中華そば 醤油" loading="lazy">
+        <div class="sg-card-body">
+          <div class="sg-card-name">羽二重中華そば（醤油）</div>
+          <div class="sg-card-desc">細打ちのシルク麺</div>
           <div class="sg-card-price">¥—</div>
         </div>
       </div>
       <div class="sg-card">
-        <img src="../images/shokudo-main-01.jpg" alt="濃厚鶏白湯" loading="lazy">
+        <img src="../images/shokudo/dish-shio.jpg" alt="羽二重中華そば 塩" loading="lazy">
         <div class="sg-card-body">
-          <div class="sg-card-name">濃厚鶏白湯</div>
-          <div class="sg-card-desc">鶏丸ごと炊き上げた白湯</div>
-          <div class="sg-card-price">¥—</div>
-        </div>
-      </div>
-      <div class="sg-card">
-        <img src="https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=600&q=80&fit=crop" alt="煮干しらーめん" loading="lazy">
-        <div class="sg-card-body">
-          <div class="sg-card-name">煮干しらーめん</div>
-          <div class="sg-card-desc">煮干しの風味すっきり</div>
+          <div class="sg-card-name">羽二重中華そば（塩）</div>
+          <div class="sg-card-desc">澄んだスープに細麺</div>
           <div class="sg-card-price">¥—</div>
         </div>
       </div>
@@ -351,28 +352,49 @@
     <div class="sec-label">Full Menu</div>
     <div class="sec-title">メニュー一覧</div>
     <div class="mn-cat">
-      <div class="mn-cat-h" onclick="toggleM(this)"><div class="mn-cat-n">らーめん</div><div class="mn-cat-t">閉じる ▴</div></div>
+      <div class="mn-cat-h" onclick="toggleM(this)"><div class="mn-cat-n">鶏白湯らーめん</div><div class="mn-cat-t">閉じる ▴</div></div>
       <div class="mn-cat-b open">
-        <div class="mn-row"><span class="mn-row-n">羽二重中華そば</span><span class="mn-row-p">¥—</span></div>
-        <div class="mn-row"><span class="mn-row-n">濃厚鶏白湯らーめん</span><span class="mn-row-p">¥—</span></div>
-        <div class="mn-row"><span class="mn-row-n">煮干しらーめん</span><span class="mn-row-p">¥—</span></div>
+        <div class="mn-row"><span class="mn-row-n">【濃厚】鶏白湯らーめん</span><span class="mn-row-p">¥950</span></div>
+        <div class="mn-row"><span class="mn-row-n">【濃厚】鶏白湯らーめん 味玉</span><span class="mn-row-p">¥1,100</span></div>
+        <div class="mn-row"><span class="mn-row-n">【濃厚】鶏白湯らーめん 全部乗せ</span><span class="mn-row-p">¥1,220</span></div>
+        <div class="mn-row"><span class="mn-row-n">【泡】白湯らーめん</span><span class="mn-row-p">¥950</span></div>
+        <div class="mn-row"><span class="mn-row-n">【泡】白湯らーめん 味玉</span><span class="mn-row-p">¥1,100</span></div>
+        <div class="mn-row"><span class="mn-row-n">【泡】白湯らーめん 全部乗せ</span><span class="mn-row-p">¥1,220</span></div>
+      </div>
+    </div>
+    <div class="mn-cat">
+      <div class="mn-cat-h" onclick="toggleM(this)"><div class="mn-cat-n">羽二重中華そば</div><div class="mn-cat-t">もっと見る ▾</div></div>
+      <div class="mn-cat-b">
+        <div class="mn-row"><span class="mn-row-n">羽二重中華そば（醤油）</span><span class="mn-row-p">¥—</span></div>
+        <div class="mn-row"><span class="mn-row-n">羽二重中華そば（塩）</span><span class="mn-row-p">¥—</span></div>
       </div>
     </div>
     <div class="mn-cat">
       <div class="mn-cat-h" onclick="toggleM(this)"><div class="mn-cat-n">つけ麺・まぜそば</div><div class="mn-cat-t">もっと見る ▾</div></div>
       <div class="mn-cat-b">
-        <div class="mn-row"><span class="mn-row-n">つけ麺</span><span class="mn-row-p">¥—</span></div>
+        <div class="mn-row"><span class="mn-row-n">【濃厚】鶏白湯つけ麺</span><span class="mn-row-p">¥980</span></div>
+        <div class="mn-row"><span class="mn-row-n">【濃厚】鶏白湯つけ麺 味玉</span><span class="mn-row-p">¥1,130</span></div>
+        <div class="mn-row"><span class="mn-row-n">【濃厚】鶏白湯つけ麺 全部乗せ</span><span class="mn-row-p">¥1,250</span></div>
         <div class="mn-row"><span class="mn-row-n">まぜそば</span><span class="mn-row-p">¥—</span></div>
       </div>
     </div>
     <div class="mn-cat">
-      <div class="mn-cat-h" onclick="toggleM(this)"><div class="mn-cat-n">サイド・ドリンク</div><div class="mn-cat-t">もっと見る ▾</div></div>
+      <div class="mn-cat-h" onclick="toggleM(this)"><div class="mn-cat-n">替え玉・トッピング</div><div class="mn-cat-t">もっと見る ▾</div></div>
       <div class="mn-cat-b">
-        <div class="mn-row"><span class="mn-row-n">チャーシュー丼</span><span class="mn-row-p">¥—</span></div>
-        <div class="mn-row"><span class="mn-row-n">餃子</span><span class="mn-row-p">¥—</span></div>
+        <div class="mn-row"><span class="mn-row-n">替え玉</span><span class="mn-row-p">¥150</span></div>
+        <div class="mn-row"><span class="mn-row-n">SP替え玉</span><span class="mn-row-p">¥300</span></div>
+        <div class="mn-row"><span class="mn-row-n">和え玉</span><span class="mn-row-p">¥—</span></div>
       </div>
     </div>
-    <p style="text-align:center;margin-top:16px;font-size:12px;color:rgba(255,255,255,0.25);">※ 料理写真は実際の商品写真に差し替え予定です</p>
+    <div class="mn-cat">
+      <div class="mn-cat-h" onclick="toggleM(this)"><div class="mn-cat-n">ランチ・サイド</div><div class="mn-cat-t">もっと見る ▾</div></div>
+      <div class="mn-cat-b">
+        <div class="mn-row"><span class="mn-row-n">ザ・サービス定食（平日11:00〜15:00限定）</span><span class="mn-row-p">¥1,000</span></div>
+        <div class="mn-row"><span class="mn-row-n">唐揚げ</span><span class="mn-row-p">¥—</span></div>
+        <div class="mn-row"><span class="mn-row-n">お子様セット</span><span class="mn-row-p">¥—</span></div>
+      </div>
+    </div>
+    <p style="text-align:center;margin-top:16px;font-size:12px;color:rgba(255,255,255,0.25);">※ 価格は税込。一部メニューは価格確認中です</p>
   </div>
 
   <!-- OWNER'S KODAWARI -->
@@ -414,14 +436,13 @@
 
   <!-- PHOTOS -->
   <div class="ph fi">
-    <div class="ph-i"><img src="../images/store-interior.jpg" alt="店内" loading="lazy"></div>
-    <div class="ph-i"><img src="../images/store-kitchen.jpg" alt="厨房" loading="lazy"></div>
-    <div class="ph-i"><img src="../images/shokudo-main-02.jpg" alt="自家製麺" loading="lazy"></div>
-    <div class="ph-i"><img src="https://images.unsplash.com/photo-1554502078-ef0fc409efce?w=400&q=80&fit=crop" alt="カウンター" loading="lazy"></div>
-    <div class="ph-i"><img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=400&q=80&fit=crop" alt="雰囲気" loading="lazy"></div>
-    <div class="ph-i"><img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=400&q=80&fit=crop" alt="外観" loading="lazy"></div>
+    <div class="ph-i"><img src="../images/shokudo/interior-counter.jpg" alt="カウンター席" loading="lazy"></div>
+    <div class="ph-i"><img src="../images/shokudo/interior-booth.jpg" alt="ブース席" loading="lazy"></div>
+    <div class="ph-i"><img src="../images/shokudo/dish-shio-lift.jpg" alt="自家製シルク麺" loading="lazy"></div>
+    <div class="ph-i"><img src="../images/shokudo/dish-set.jpg" alt="定食セット" loading="lazy"></div>
+    <div class="ph-i"><img src="../images/shokudo/entrance-noren.jpg" alt="入口の暖簾" loading="lazy"></div>
+    <div class="ph-i"><img src="../images/shokudo/exterior-night.jpg" alt="夜の外観" loading="lazy"></div>
   </div>
-  <p style="text-align:center;padding:8px 0 0;font-size:12px;color:#999;">※ 一部写真はイメージです。実際の店舗写真に差し替え予定</p>
 
   <!-- ACCESS -->
   <div class="sec fi" id="access">
