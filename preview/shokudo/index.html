@@ -20,8 +20,14 @@
 
   :root{--black:#0e0e0e;--dark:#151515;--teal:#2a7a6b;--teal-dark:#1d5c50;--red:#c41e2e;--gold:#b8942e;--cream:#f8f5ef;--white:#fff;--text:#2a2a2a;--text-sub:#777;--border:rgba(0,0,0,0.08)}
   *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-  html{height:100%;font-size:62.5%}
-  body{font-family:'Noto Sans JP',sans-serif;background:var(--cream);color:var(--text);font-size:14px;line-height:1.8;height:100%;position:relative}
+  html{height:100%;font-size:62.5%;width:100%;word-break:keep-all}
+  body{font-family:'Noto Sans JP',sans-serif;background:var(--cream);color:var(--text);font-size:14px;line-height:1.8;height:100%;position:relative;width:100%;word-break:keep-all;line-break:strict}
+  /* 見出しは行を均等割りして行末1〜2文字の孤立を防ぐ／本文は最終行の孤立語を防ぐ */
+  h1,h2,h3,.sec-title,.okd-quote,.kd-name,.sg-card-name,.mn-cat-n,.welcome-title,.pm-t,.ft-logo{text-wrap:balance}
+  p,.okd-desc,.kd-desc,.sg-card-desc,.welcome-desc{text-wrap:pretty}
+  /* grid/flex の子は min-width:auto のため min-content 幅まで膨らみ、狭い画面(320px等)で
+     親を超えてはみ出す。0 にして親幅に収める。 */
+  .okd-item > *, .kd-item > *, .sg-grid > *, .ac-grid > *, .ph > *{min-width:0}
 
   /* ===== LEFT: FIXED VISUAL ===== */
   .visual{
@@ -214,6 +220,10 @@
     .visual-logo{padding-right:0}
     .content{width:100%;float:none}
     .hd{position:fixed;top:0;left:0;right:0;z-index:100}
+    /* 本店ページにはある SP 対応が抜けており、320px でフッターが3カラムのまま
+       画面外へはみ出していた。 */
+    .ft-inner{grid-template-columns:1fr;gap:24px}
+    .hd > *{min-width:0}
     .nav{display:none}
     .hb{display:block}
     .welcome{min-height:auto;padding:48px 24px}
@@ -225,7 +235,7 @@
     .okd{padding:56px 20px}
     .okd-item{grid-template-columns:1fr;gap:0;padding:44px 0}
     .okd-quote{grid-column:1;grid-row:1;writing-mode:horizontal-tb;font-size:19px;letter-spacing:2px;line-height:1.8;margin-bottom:16px}
-    .okd-quote br{display:none}
+    .okd-quote br{display:inline}
     .okd-body{grid-column:1;grid-row:2}
     .okd-kanji{font-size:160px;left:auto;right:-30px;bottom:-20px}
     .ph{grid-template-columns:repeat(3,1fr)}
