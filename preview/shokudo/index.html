@@ -56,7 +56,8 @@
   /* HEADER (右側内) */
   html{overflow-x:hidden}
   .hd{background:rgba(248,245,239,0.95);padding:16px 24px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:50;backdrop-filter:blur(4px)}
-  .hd-logo{font-family:'Zen Antique Soft',serif;font-size:16px;color:var(--text);text-decoration:none;letter-spacing:2px}
+  .hd-logo{font-family:'Zen Antique Soft',serif;font-size:16px;color:var(--text);text-decoration:none;letter-spacing:2px;display:inline-flex;align-items:center;gap:8px}
+  .hd-mark{width:auto;height:26px;display:block}
   .hd-logo span{color:var(--teal)}
   .nav{display:flex;align-items:center;gap:2px}
   .nav a{color:var(--text-sub);text-decoration:none;font-size:12px;font-weight:500;padding:4px 8px;letter-spacing:1px;transition:color 0.2s}
@@ -80,6 +81,7 @@
 
   /* WELCOME (Hero代わり、右側ファーストビュー) */
   .welcome{min-height:calc(100vh - 52px);display:flex;flex-direction:column;justify-content:center;padding:60px 40px;background:var(--cream)}
+  .welcome-logo{width:min(340px,72%);height:auto;margin-bottom:28px;display:block}
   .welcome-sub{font-size:12px;color:var(--teal);letter-spacing:4px;text-transform:uppercase;margin-bottom:8px}
   .welcome-title{font-family:'Noto Serif JP',serif;font-size:28px;font-weight:900;color:var(--text);letter-spacing:2px;line-height:1.6;margin-bottom:16px}
   .welcome-desc{font-size:14px;color:var(--text-sub);line-height:2.4;max-width:420px}
@@ -263,7 +265,7 @@
 <div class="content">
 
   <header class="hd">
-    <a href="/preview/" class="hd-logo">RAMEN <span>W</span></a>
+    <a href="/preview/" class="hd-logo"><img class="hd-mark" src="../images/logo-rw-mark.png" alt="" width="512" height="432">RAMEN <span>W</span></a>
     <nav class="nav">
       <div class="nav-sw"><a href="/preview/">本店</a><a href="/preview/shokudo/" class="on">食堂W</a></div>
       <a href="#menu">メニュー</a>
@@ -281,6 +283,7 @@
 
   <!-- WELCOME -->
   <div class="welcome">
+    <img class="welcome-logo" src="../images/logo-shokudo-w.png" alt="自家製麺 らぁ麺食堂W" width="1200" height="562">
     <div class="welcome-sub">All Original</div>
     <div class="welcome-title">すべて、オリジナルで。</div>
     <div class="welcome-desc">

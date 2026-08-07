@@ -48,7 +48,11 @@
   .hd.scrolled .nav a{color:rgba(0,0,0,0.45)}
   .hd.scrolled .nav a:hover{color:var(--text)}
   .hd.scrolled .hb i{background:var(--text)}
-  .hd-logo{font-family:'Zen Antique Soft',serif;font-size:20px;color:var(--white);text-decoration:none;letter-spacing:3px}
+  .hd-logo{font-family:'Zen Antique Soft',serif;font-size:20px;color:var(--white);text-decoration:none;letter-spacing:3px;display:inline-flex;align-items:center;gap:9px}
+  /* ヘッダーは本店リンク＝グループの顔なので、共通シンボルのRWマークを添える。
+     ヒーロー上は暗いので白フチを回して視認性を確保する。 */
+  .hd-mark{width:auto;height:30px;display:block;filter:drop-shadow(0 0 2px rgba(255,255,255,0.9))}
+  .hd.scrolled .hd-mark{filter:none}
   .hd-logo span{color:var(--red);font-size:24px}
   .nav{display:flex;align-items:center;gap:2px}
   .nav a{color:rgba(255,255,255,0.5);text-decoration:none;font-size:12px;font-weight:500;padding:5px 10px;letter-spacing:1px;transition:color 0.2s}
@@ -297,7 +301,7 @@
 <body>
 
 <header class="hd" id="hd">
-  <a href="/preview/" class="hd-logo">RAMEN <span>W</span></a>
+  <a href="/preview/" class="hd-logo"><img class="hd-mark" src="images/logo-rw-mark.png" alt="" width="512" height="432">RAMEN <span>W</span></a>
   <nav class="nav">
     <div class="nav-sw"><a href="/preview/" class="on">本店</a><a href="/preview/shokudo/">食堂W</a></div>
     <a href="#menu">メニュー</a><a href="#kodawari">こだわり</a><a href="#access">アクセス</a><a href="/preview/company/">会社概要</a><a href="/preview/recruit/">採用</a>
