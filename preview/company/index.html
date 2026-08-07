@@ -31,7 +31,7 @@
   p,.msg-body,.story-body,.co-val,.gh-desc{text-wrap:pretty}
   /* grid の子は min-width:auto で min-content 幅まで膨らみ、SPで親を超えて見切れる。
      実際 .msg（代表挨拶）が390px画面で460pxになり右90pxが切れていた。 */
-  .msg > *, .grp > *, .gh > *, .ft-inner > *{min-width:0}
+  .msg > *, .grp > *, .gh > *, .ft-inner > *, .okd-item > *{min-width:0}
 
 
   /* HEADER */
@@ -118,6 +118,31 @@
   .ph-hero-creed span{display:block}
   .ph-hero-creed .red{color:var(--red)}
   .ph-hero-sub{margin-top:28px;font-size:14px;letter-spacing:3px;color:#555}
+
+
+  /* ===== 店主の、こだわり（グループ共通）=====
+     議事録:「グループ共通の自家製麺・店内仕込みといった職人魂や素材への
+     根本的なこだわりは共通セクションに掲載する」。従来は本店と食堂Wに
+     別々の文言で置かれ、麺の話が重複していたためここへ集約した。 */
+  .okd{background:#f4f0e6;padding:90px 32px;border-top:1px solid rgba(0,0,0,0.07)}
+  .okd-inner{max-width:1000px;margin:0 auto}
+  .okd-head{padding-bottom:36px}
+  .okd-item{position:relative;display:grid;grid-template-columns:auto 1fr;gap:56px;align-items:center;padding:56px 0;border-top:1px solid rgba(0,0,0,0.08)}
+  .okd-kanji{position:absolute;right:-30px;bottom:-40px;font-family:'Noto Serif JP',serif;font-size:260px;font-weight:900;line-height:1;color:rgba(26,26,26,0.05);pointer-events:none;user-select:none;z-index:0}
+  .okd-quote{grid-column:1;grid-row:1;writing-mode:vertical-rl;font-family:'Noto Serif JP',serif;font-size:24px;font-weight:900;letter-spacing:5px;line-height:2;color:#1a1a1a;position:relative;z-index:1;align-self:center}
+  .okd-qm{color:var(--red)}
+  .okd-body{grid-column:2;grid-row:1;position:relative;z-index:1}
+  .okd-no{font-family:'Noto Serif JP',serif;font-size:14px;font-weight:700;color:var(--red);letter-spacing:8px;margin-bottom:18px}
+  .okd-desc{font-size:14px;color:#555;line-height:2.6;max-width:520px}
+  .okd-em{font-style:normal;font-weight:700;color:#1a1a1a;text-emphasis:filled circle rgba(196,30,46,0.75);-webkit-text-emphasis:filled circle rgba(196,30,46,0.75)}
+  @media(max-width:768px){
+    .okd{padding:64px 20px}
+    .okd-item{grid-template-columns:1fr;gap:0;padding:44px 0}
+    .okd-quote{grid-column:1;grid-row:1;writing-mode:horizontal-tb;font-size:20px;letter-spacing:2px;line-height:1.8;margin-bottom:16px}
+    .okd-quote br{display:inline}
+    .okd-body{grid-column:1;grid-row:2}
+    .okd-kanji{font-size:160px;right:-30px;bottom:-20px}
+  }
 
   /* MESSAGE (代表挨拶) */
   .msg{display:grid;grid-template-columns:0.85fr 1.15fr;gap:48px;align-items:start}
@@ -329,6 +354,53 @@
 </section>
 
 <!-- COMPANY TABLE -->
+
+<!-- OWNER'S KODAWARI（グループ共通） -->
+<section class="okd">
+  <div class="okd-inner">
+    <div class="okd-head">
+      <div class="s-label">Owner's Philosophy</div>
+      <h2 class="s-title">店主の、こだわり。</h2>
+    </div>
+
+    <div class="okd-item">
+      <span class="okd-kanji" aria-hidden="true">麺</span>
+      <h3 class="okd-quote"><span class="okd-qm">「</span>麺屋が、麺で<br>手を抜いてどうする。<span class="okd-qm">」</span></h3>
+      <div class="okd-body">
+        <div class="okd-no">其の一</div>
+        <p class="okd-desc">麺は自家製。小麦は北海道産のみ。かん水はモンゴル産の天然かん水を使い、その量を極力減らすために、山形のメーカーから仕入れた食用のシルクジェル（シルクパウダー）を練り込んでいる。これが&ldquo;シルク麺&rdquo;。<em class="okd-em">麺に卵は一切使っていない</em>ので、卵アレルギーの方にも。2店舗それぞれ、性質の違う麺を打ち分けている。</p>
+      </div>
+    </div>
+
+    <div class="okd-item">
+      <span class="okd-kanji" aria-hidden="true">汁</span>
+      <h3 class="okd-quote"><span class="okd-qm">「</span>スープは、週に一度。<br>八時間かけて。<span class="okd-qm">」</span></h3>
+      <div class="okd-body">
+        <div class="okd-no">其の二</div>
+        <p class="okd-desc">スープはすべて店内で炊く。一番時間のかかる仕込みは週に1回、<em class="okd-em">八時間かけて</em>じっくりと。それで1週間分。営業時間中はずっと火を入れ続け、早朝や深夜に一人で仕込むような無理はさせない。</p>
+      </div>
+    </div>
+
+    <div class="okd-item">
+      <span class="okd-kanji" aria-hidden="true">豚</span>
+      <h3 class="okd-quote"><span class="okd-qm">「</span>冷凍しない国産豚。<br>だから、旨い。<span class="okd-qm">」</span></h3>
+      <div class="okd-body">
+        <div class="okd-no">其の三</div>
+        <p class="okd-desc">チャーシューは、<em class="okd-em">一度も冷凍していない国産の生豚肉</em>だけ。冷凍・解凍を挟まないぶん旨味が逃げず、ジューシーで柔らかく仕上がる。スープで煮込むバラチャーシューと、低温調理のロースのレアチャーシュー。</p>
+      </div>
+    </div>
+
+    <div class="okd-item">
+      <span class="okd-kanji" aria-hidden="true">込</span>
+      <h3 class="okd-quote"><span class="okd-qm">「</span>手間は、愛情。<span class="okd-qm">」</span></h3>
+      <div class="okd-body">
+        <div class="okd-no">其の四</div>
+        <p class="okd-desc">スープも、チャーシューも、メンマも、全部この厨房で仕込む。メンマは乾燥から戻して一から味付けする。工場から届いたものを袋から出して乗せるだけの店にはしたくない。<em class="okd-em">手を抜かない、嘘をつかない</em>。当たり前を、一杯ずつ積み重ねている。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="s co-wrap">
   <div class="s-inner">
     <div class="fi" style="margin-bottom:8px">

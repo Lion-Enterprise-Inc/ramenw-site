@@ -37,7 +37,9 @@
   h1,h2,h3,.sec-title,.hero-title,.pos-name{text-wrap:balance}
   p,.sec-lead,.pos-desc{text-wrap:pretty}
   /* grid/flex の子が min-content 幅で膨らむのを止める */
-  [class*=grid] > *, [class*=-row] > *, .nav-links > *{min-width:0}
+  [class*=grid] > *, [class*=-row] > *, .nav-links > *,
+  .appeal-grid > *, .job-grid > *, .stats-grid > *,
+  .flow-step > *{min-width:0}
 
 
   .site-header { position:fixed; top:0; width:100%; z-index:100; background:rgba(10,10,10,0.4); backdrop-filter:blur(4px); transition:background 0.3s; }
