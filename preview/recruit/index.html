@@ -31,8 +31,14 @@
     --teal: #2a7a6b;
   }
   * { margin:0; padding:0; box-sizing:border-box; }
-  html { scroll-behavior:smooth; }
-  body { font-family:'Noto Sans JP',sans-serif; background:var(--cream); color:var(--dark); line-height:1.8; }
+  html { scroll-behavior:smooth; overflow-x:hidden; width:100%; word-break:keep-all; }
+  body { font-family:'Noto Sans JP',sans-serif; background:var(--cream); color:var(--dark); line-height:1.8; overflow-x:hidden; width:100%; word-break:keep-all; line-break:strict; }
+  /* 日本語の語中改行を防ぐ */
+  h1,h2,h3,.sec-title,.hero-title,.pos-name{text-wrap:balance}
+  p,.sec-lead,.pos-desc{text-wrap:pretty}
+  /* grid/flex の子が min-content 幅で膨らむのを止める */
+  [class*=grid] > *, [class*=-row] > *, .nav-links > *{min-width:0}
+
 
   .site-header { position:fixed; top:0; width:100%; z-index:100; background:rgba(10,10,10,0.4); backdrop-filter:blur(4px); transition:background 0.3s; }
   .site-header.scrolled { background:rgba(10,10,10,0.95); backdrop-filter:blur(8px); }

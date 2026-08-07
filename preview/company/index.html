@@ -24,8 +24,15 @@
     --text:#2a2a2a;--text-sub:#777;--border:rgba(0,0,0,0.08);
   }
   *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-  html{scroll-behavior:smooth;overflow-x:hidden}
-  body{font-family:'Noto Sans JP',sans-serif;background:var(--cream);color:var(--text);line-height:1.8;overflow-x:hidden}
+  html{scroll-behavior:smooth;overflow-x:hidden;width:100%;word-break:keep-all}
+  body{font-family:'Noto Sans JP',sans-serif;background:var(--cream);color:var(--text);line-height:1.8;overflow-x:hidden;width:100%;word-break:keep-all;line-break:strict}
+  /* 日本語の語中改行を防ぐ。keep-all が無いと「濃厚豚骨魚介」「プロデュース」等が割れる */
+  h1,h2,h3,.s-title,.gh-name,.gh-group,.ph-hero-creed,.sec-title,.msg-name,.co-t{text-wrap:balance}
+  p,.msg-body,.story-body,.co-val,.gh-desc{text-wrap:pretty}
+  /* grid の子は min-width:auto で min-content 幅まで膨らみ、SPで親を超えて見切れる。
+     実際 .msg（代表挨拶）が390px画面で460pxになり右90pxが切れていた。 */
+  .msg > *, .grp > *, .gh > *, .ft-inner > *{min-width:0}
+
 
   /* HEADER */
   .hd{position:fixed;top:0;width:100%;z-index:100;height:56px;display:flex;align-items:center;justify-content:space-between;padding:0 24px;transition:background 0.4s;background:rgba(14,14,14,0.55)}
@@ -77,12 +84,12 @@
   /* 中央のグループ名と店舗テキストが重ならないよう、店舗情報は下端に寄せ切る */
   .gh-c{position:relative;z-index:2;padding:32px 28px 40px;width:100%;text-align:left;margin-top:auto}
   .gh-label{display:block;font-size:12px;letter-spacing:4px;color:var(--gold);font-weight:700;margin-bottom:8px}
-  .gh-name{display:block;font-family:'Noto Serif JP',serif;font-size:24px;font-weight:900;color:var(--white);letter-spacing:1px;line-height:1.5}
+  .gh-name{display:block;font-family:'Noto Sans JP',sans-serif;font-size:26px;font-weight:900;color:var(--white);letter-spacing:-0.5px;line-height:1.35}
   .gh-desc{display:block;font-size:13px;color:rgba(255,255,255,0.72);margin-top:8px}
   .gh-btn{display:inline-block;margin-top:16px;font-size:13px;font-weight:700;color:var(--white);border-bottom:1px solid rgba(255,255,255,0.5);padding-bottom:3px}
   .gh-center{position:absolute;top:34%;left:50%;transform:translate(-50%,-50%);z-index:3;text-align:center;pointer-events:none;width:100%}
   .gh-mark{width:auto;height:64px;margin:0 auto 14px;display:block;filter:drop-shadow(0 2px 10px rgba(0,0,0,0.6))}
-  .gh-group{font-family:'Zen Antique Soft',serif;font-size:30px;letter-spacing:5px;color:var(--white);text-shadow:0 2px 14px rgba(0,0,0,0.85)}
+  .gh-group{font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:32px;letter-spacing:1px;color:var(--white);text-shadow:0 2px 16px rgba(0,0,0,0.9)}
   .gh-tag{margin-top:8px;font-size:12px;letter-spacing:3px;color:rgba(255,255,255,0.85);text-shadow:0 1px 8px rgba(0,0,0,0.8)}
   .gh ruby rt{font-size:9px;color:rgba(255,255,255,0.6);font-weight:400;letter-spacing:1px}
   @media(max-width:768px){
