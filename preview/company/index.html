@@ -90,15 +90,19 @@
   .gh-btn{display:inline-block;margin-top:16px;font-size:13px;font-weight:700;color:var(--white);border-bottom:1px solid rgba(255,255,255,0.5);padding-bottom:3px}
   .gh-center{position:absolute;top:34%;left:50%;transform:translate(-50%,-50%);z-index:3;text-align:center;pointer-events:none;width:100%}
   .gh-mark{width:auto;height:64px;margin:0 auto 14px;display:block;filter:drop-shadow(0 2px 10px rgba(0,0,0,0.6))}
-  .gh-group{font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:32px;letter-spacing:1px;color:var(--white);text-shadow:0 2px 16px rgba(0,0,0,0.9)}
-  .gh-tag{margin-top:8px;font-size:12px;letter-spacing:3px;color:rgba(255,255,255,0.85);text-shadow:0 1px 8px rgba(0,0,0,0.8)}
+    /* 主役は英字「RAMEN W」。読めない人向けのカタカナはふりがなとして上に小さく置く。 */
+  .gh-yomi{font-size:13px;letter-spacing:7px;color:rgba(255,255,255,0.8);margin-bottom:10px;text-shadow:0 1px 10px rgba(0,0,0,0.85)}
+  .gh-group{font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:clamp(46px,6.4vw,92px);letter-spacing:2px;line-height:1;color:var(--white);text-shadow:0 4px 28px rgba(0,0,0,0.9)}
+  .gh-group .w{color:var(--red)}
+  .gh-tag{margin-top:14px;font-size:12px;letter-spacing:3px;color:rgba(255,255,255,0.85);text-shadow:0 1px 8px rgba(0,0,0,0.8)}
   .gh ruby rt{font-size:9px;color:rgba(255,255,255,0.6);font-weight:400;letter-spacing:1px}
   @media(max-width:768px){
     .gh{grid-template-columns:1fr;height:auto;min-height:0}
     .gh-half{min-height:44vh;min-height:44svh}
     .gh-center{position:relative;top:auto;left:auto;transform:none;background:var(--black);padding:26px 20px;order:-1}
     .gh-mark{height:52px}
-    .gh-group{font-size:23px;letter-spacing:3px}
+    .gh-group{letter-spacing:1px}
+    .gh-yomi{font-size:12px;letter-spacing:5px}
     .gh-name{font-size:20px}
   }
 
@@ -225,8 +229,9 @@
   </a>
   <div class="gh-center">
     <img class="gh-mark" src="/preview/images/logo-rw-mark.png" alt="" width="512" height="432">
-    <div class="gh-group">ラーメンWグループ</div>
-    <div class="gh-tag">福井市内で2店舗</div>
+    <div class="gh-yomi">ラーメン ダブル</div>
+    <div class="gh-group">RAMEN <span class="w">W</span></div>
+    <div class="gh-tag">GROUP ／ 福井市内で2店舗</div>
   </div>
 </section>
 
