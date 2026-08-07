@@ -75,7 +75,8 @@
 
   /* PHILOSOPHY HERO */
   /* ===== GROUP HERO（2店舗並列） ===== */
-  .gh{position:relative;display:grid;grid-template-columns:1fr 1fr;min-height:72vh;min-height:72svh}
+  .gh{position:relative;display:grid;grid-template-columns:1fr 1fr;height:100vh;height:100svh;min-height:640px}  /* 本店ヒーロー(.hero height:100vh/min 640px)と同じ迫力に揃える。
+     svh併記は iOS のアドレスバー伸縮で高さが動くのを防ぐため。 */
   .gh-half{position:relative;overflow:hidden;display:flex;align-items:flex-end;text-decoration:none;min-height:340px}
   .gh-honten{background:url('/preview/images/shono-02.jpg') center/cover}
   .gh-shokudo{background:url('/preview/images/shokudo/exterior-night.jpg') center/cover}
@@ -93,8 +94,8 @@
   .gh-tag{margin-top:8px;font-size:12px;letter-spacing:3px;color:rgba(255,255,255,0.85);text-shadow:0 1px 8px rgba(0,0,0,0.8)}
   .gh ruby rt{font-size:9px;color:rgba(255,255,255,0.6);font-weight:400;letter-spacing:1px}
   @media(max-width:768px){
-    .gh{grid-template-columns:1fr;min-height:0}
-    .gh-half{min-height:270px}
+    .gh{grid-template-columns:1fr;height:auto;min-height:0}
+    .gh-half{min-height:44vh;min-height:44svh}
     .gh-center{position:relative;top:auto;left:auto;transform:none;background:var(--black);padding:26px 20px;order:-1}
     .gh-mark{height:52px}
     .gh-group{font-size:23px;letter-spacing:3px}
