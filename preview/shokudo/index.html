@@ -191,7 +191,11 @@
   /* PROMO */
   .pm{background:var(--black);padding:48px 40px;text-align:center;color:var(--white)}
   .pm .sec-label{color:var(--teal)}
+  /* グループであることを先に言う。「全く別の店だと思っていた」客が多いという
+     店主の課題に対して、トップをポータル化せずここで解く。 */
+  .pm-g{font-size:13px;color:rgba(255,255,255,0.62);line-height:2;margin-bottom:16px}
   .pm-t{font-family:'Noto Serif JP',serif;font-size:18px;font-weight:900;color:var(--white);margin-bottom:6px}
+  ruby rt{font-size:9px;color:rgba(255,255,255,0.55);letter-spacing:1px;font-weight:400}
   .pm-d{font-size:12px;color:rgba(255,255,255,0.4);margin-bottom:16px;line-height:2}
   .pm-btn{display:inline-block;background:var(--white);color:var(--black);text-decoration:none;font-size:12px;font-weight:700;padding:10px 24px;border-radius:3px}
 
@@ -486,10 +490,11 @@
 
   <!-- PROMO -->
   <div class="pm fi">
-    <div class="sec-label">Another W</div>
-    <div class="pm-t">RAMEN W ～庄の×ど・みそ～</div>
-    <div class="pm-d">同じ想いから生まれた、もうひとつの「W」。<br>東京の名店の味を福井で。車で5分。</div>
-    <a href="/preview/" class="pm-btn">本店のページへ</a>
+    <div class="sec-label">Group Store</div>
+    <div class="pm-g">私たちは「ラーメンWグループ」として<br>福井市内で2店舗を営んでいます。</div>
+    <div class="pm-t">ラーメン<ruby>W<rt>ダブル</rt></ruby> 本店</div>
+    <div class="pm-d">もう一軒は、開発の国道沿い。<br>同じ製麺場から、店に合わせて打ち分けた自家製麺を使っています。車で5分。</div>
+    <a href="/preview/" class="pm-btn">本店を見る</a>
   </div>
 
   <!-- RECRUIT -->

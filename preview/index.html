@@ -4,12 +4,12 @@
 <meta name="robots" content="noindex, nofollow">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>RAMEN W ～庄の×ど・みそ～｜福井市のラーメン</title>
-<meta name="description" content="福井市のラーメン店 RAMEN W。東京の名店「麺や庄の」「ど・みそ」の味を福井で。">
+<title>ラーメンW（ダブル）｜福井市の自家製麺ラーメン</title>
+<meta name="description" content="福井市のラーメン店 ラーメンW（ダブル）。北海道産小麦の自家製麺と、店内で一から仕込むスープ。国産の非冷凍生豚肉を使ったチャーシュー。">
 <link rel="canonical" href="https://ramenw.jp/preview/">
 <link rel="icon" type="image/svg+xml" href="/preview/favicon.svg">
-<meta property="og:title" content="RAMEN W ～庄の×ど・みそ～｜福井市のラーメン">
-<meta property="og:description" content="東京の2大名店の味が、なぜか福井にある。庄の×ど・みそ。">
+<meta property="og:title" content="ラーメンW（ダブル）｜福井市の自家製麺ラーメン">
+<meta property="og:description" content="麺もスープもチャーシューも、店内で。福井市のラーメンW（ダブル）。">
 <meta property="og:type" content="restaurant">
 <meta property="og:url" content="https://ramenw.jp/preview/">
 <meta property="og:image" content="https://ramenw.jp/preview/images/shono-02.jpg">
@@ -243,7 +243,11 @@
   /* PROMO */
   .pm{background:var(--black);padding:64px 32px;text-align:center;color:var(--white)}
   .pm .s-label{color:var(--red)}
+  /* グループであることを先に言う。「全く別の店だと思っていた」客が多いという
+     店主の課題に対して、トップをポータル化せずここで解く。 */
+  .pm-g{font-size:13px;color:rgba(255,255,255,0.62);line-height:2;margin-bottom:18px}
   .pm-t{font-family:'Noto Serif JP',serif;font-size:20px;font-weight:900;margin-bottom:8px;color:var(--white)}
+  ruby rt{font-size:9px;color:rgba(255,255,255,0.55);letter-spacing:1px;font-weight:400}
   .pm-d{font-size:13px;color:rgba(255,255,255,0.4);margin-bottom:18px;line-height:2}
   .pm-btn{display:inline-block;background:var(--white);color:var(--black);text-decoration:none;font-size:13px;font-weight:700;padding:11px 28px;border-radius:3px;transition:background 0.3s}
   .pm-btn:hover{background:var(--gold)}
@@ -568,10 +572,11 @@
 
 <!-- PROMO -->
 <div class="pm">
-  <div class="s-label fi">Another W</div>
-  <div class="pm-t fi">自家製麺 らぁ麺食堂W</div>
-  <div class="pm-d">同じ想いから生まれた、もうひとつの「W」。<br>全メニューオリジナル。車で5分。</div>
-  <a href="/preview/shokudo/" class="pm-btn fi">食堂Wのページへ</a>
+  <div class="s-label fi">Group Store</div>
+  <div class="pm-g fi">私たちは「ラーメンWグループ」として<br>福井市内で2店舗を営んでいます。</div>
+  <div class="pm-t fi">自家製麺 らぁ麺食堂<ruby>W<rt>ダブル</rt></ruby></div>
+  <div class="pm-d">もう一軒は、全メニューがオリジナル。<br>同じ製麺場から、店に合わせて打ち分けた自家製麺を使っています。車で5分。</div>
+  <a href="/preview/shokudo/" class="pm-btn fi">食堂Wを見る</a>
 </div>
 
 <!-- RECRUIT -->
@@ -592,7 +597,7 @@
 </footer>
 
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Restaurant","name":"RAMEN W ～庄の×ど・みそ～","url":"https://ramenw.jp/preview/","image":"https://ramenw.jp/preview/images/shono-02.jpg","telephone":"0776-50-2940","address":{"@type":"PostalAddress","streetAddress":"開発2丁目207","addressLocality":"福井市","addressRegion":"福井県","postalCode":"910-0837","addressCountry":"JP"},"servesCuisine":"ラーメン","priceRange":"¥950〜¥1,580","acceptsReservations":"https://airrsv.net/ramenw/calendar","openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"11:00","closes":"14:30"},{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"17:00","closes":"21:00"},{"@type":"OpeningHoursSpecification","dayOfWeek":["Saturday","Sunday"],"opens":"11:00","closes":"21:00"}]}
+{"@context":"https://schema.org","@type":"Restaurant","name":"ラーメンW（ダブル）","url":"https://ramenw.jp/preview/","image":"https://ramenw.jp/preview/images/shono-02.jpg","telephone":"0776-50-2940","address":{"@type":"PostalAddress","streetAddress":"開発2丁目207","addressLocality":"福井市","addressRegion":"福井県","postalCode":"910-0837","addressCountry":"JP"},"servesCuisine":"ラーメン","priceRange":"¥950〜¥1,580","acceptsReservations":"https://airrsv.net/ramenw/calendar","openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"11:00","closes":"14:30"},{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"17:00","closes":"21:00"},{"@type":"OpeningHoursSpecification","dayOfWeek":["Saturday","Sunday"],"opens":"11:00","closes":"21:00"}]}
 </script>
 <script>
 function toggleM(el){var b=el.nextElementSibling,t=el.querySelector('.mn-cat-t');b.classList.toggle('open');t.textContent=b.classList.contains('open')?'閉じる ▴':'もっと見る ▾'}
