@@ -67,6 +67,33 @@
   .s-dark .s-title{color:var(--white)}
 
   /* PHILOSOPHY HERO */
+  /* ===== GROUP HERO（2店舗並列） ===== */
+  .gh{position:relative;display:grid;grid-template-columns:1fr 1fr;min-height:72vh;min-height:72svh}
+  .gh-half{position:relative;overflow:hidden;display:flex;align-items:flex-end;text-decoration:none;min-height:340px}
+  .gh-honten{background:url('/preview/images/shono-02.jpg') center/cover}
+  .gh-shokudo{background:url('/preview/images/shokudo/exterior-night.jpg') center/cover}
+  .gh-dim{position:absolute;inset:0;background:linear-gradient(to top,rgba(14,14,14,0.92) 0%,rgba(14,14,14,0.45) 55%,rgba(14,14,14,0.55) 100%);transition:background .4s}
+  .gh-half:hover .gh-dim{background:linear-gradient(to top,rgba(14,14,14,0.88) 0%,rgba(14,14,14,0.3) 55%,rgba(14,14,14,0.45) 100%)}
+  /* 中央のグループ名と店舗テキストが重ならないよう、店舗情報は下端に寄せ切る */
+  .gh-c{position:relative;z-index:2;padding:32px 28px 40px;width:100%;text-align:left;margin-top:auto}
+  .gh-label{display:block;font-size:12px;letter-spacing:4px;color:var(--gold);font-weight:700;margin-bottom:8px}
+  .gh-name{display:block;font-family:'Noto Serif JP',serif;font-size:24px;font-weight:900;color:var(--white);letter-spacing:1px;line-height:1.5}
+  .gh-desc{display:block;font-size:13px;color:rgba(255,255,255,0.72);margin-top:8px}
+  .gh-btn{display:inline-block;margin-top:16px;font-size:13px;font-weight:700;color:var(--white);border-bottom:1px solid rgba(255,255,255,0.5);padding-bottom:3px}
+  .gh-center{position:absolute;top:34%;left:50%;transform:translate(-50%,-50%);z-index:3;text-align:center;pointer-events:none;width:100%}
+  .gh-mark{width:auto;height:64px;margin:0 auto 14px;display:block;filter:drop-shadow(0 2px 10px rgba(0,0,0,0.6))}
+  .gh-group{font-family:'Zen Antique Soft',serif;font-size:30px;letter-spacing:5px;color:var(--white);text-shadow:0 2px 14px rgba(0,0,0,0.85)}
+  .gh-tag{margin-top:8px;font-size:12px;letter-spacing:3px;color:rgba(255,255,255,0.85);text-shadow:0 1px 8px rgba(0,0,0,0.8)}
+  .gh ruby rt{font-size:9px;color:rgba(255,255,255,0.6);font-weight:400;letter-spacing:1px}
+  @media(max-width:768px){
+    .gh{grid-template-columns:1fr;min-height:0}
+    .gh-half{min-height:270px}
+    .gh-center{position:relative;top:auto;left:auto;transform:none;background:var(--black);padding:26px 20px;order:-1}
+    .gh-mark{height:52px}
+    .gh-group{font-size:23px;letter-spacing:3px}
+    .gh-name{font-size:20px}
+  }
+
   .ph-hero{position:relative;min-height:76vh;display:flex;align-items:center;justify-content:center;text-align:center;color:var(--white);overflow:hidden}
   .ph-hero-bg{position:absolute;inset:0;background:url('/preview/images/noodles.jpg') center/cover;z-index:0}
   .ph-hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(14,14,14,0.72),rgba(14,14,14,0.86))}
@@ -152,18 +179,46 @@
   <a href="/preview/" class="hd-logo">RAMEN <span>W</span></a>
   <nav class="nav">
     <div class="nav-sw"><a href="/preview/">本店</a><a href="/preview/shokudo/">食堂W</a></div>
-    <a href="/preview/#menu">メニュー</a><a href="/preview/#kodawari">こだわり</a><a href="/preview/company/" class="cur">会社概要</a><a href="/preview/recruit/">採用</a>
+    <a href="/preview/#menu">メニュー</a><a href="/preview/#kodawari">こだわり</a><a href="/preview/company/" class="cur">グループ</a><a href="/preview/recruit/">採用</a>
     <a href="https://airrsv.net/ramenw/calendar" class="nav-rsv" target="_blank">予約</a>
   </nav>
   <button class="hb" id="hb" onclick="toggleDr()" aria-label="メニュー"><i></i><i></i><i></i></button>
 </header>
 <nav class="dr" id="dr">
   <div class="dr-sw"><a href="/preview/">本店</a><a href="/preview/shokudo/">食堂W</a></div>
-  <a href="/preview/#menu" onclick="closeDr()">メニュー</a><a href="/preview/#kodawari" onclick="closeDr()">こだわり</a><a href="/preview/company/">会社概要</a><a href="/preview/recruit/">採用</a>
+  <a href="/preview/#menu" onclick="closeDr()">メニュー</a><a href="/preview/#kodawari" onclick="closeDr()">こだわり</a><a href="/preview/company/">グループ</a><a href="/preview/recruit/">採用</a>
   <a href="https://airrsv.net/ramenw/calendar" class="dr-rsv" target="_blank">予約</a>
 </nav>
 
 <!-- PHILOSOPHY HERO -->
+<!-- GROUP HERO: 2店舗を並べてグループを最初に示す。
+     トップ(/)は本店＝MEOの主導線なので潰さず、グループの顔はこのページが担う。 -->
+<section class="gh">
+  <a class="gh-half gh-honten" href="/preview/">
+    <span class="gh-dim"></span>
+    <span class="gh-c">
+      <span class="gh-label">Store 01</span>
+      <span class="gh-name">ラーメン<ruby>W<rt>ダブル</rt></ruby> 本店</span>
+      <span class="gh-desc">福井市開発・国道沿い</span>
+      <span class="gh-btn">本店を見る →</span>
+    </span>
+  </a>
+  <a class="gh-half gh-shokudo" href="/preview/shokudo/">
+    <span class="gh-dim"></span>
+    <span class="gh-c">
+      <span class="gh-label">Store 02</span>
+      <span class="gh-name">自家製麺 らぁ麺食堂<ruby>W<rt>ダブル</rt></ruby></span>
+      <span class="gh-desc">福井市米松・全メニューオリジナル</span>
+      <span class="gh-btn">食堂Wを見る →</span>
+    </span>
+  </a>
+  <div class="gh-center">
+    <img class="gh-mark" src="/preview/images/logo-rw-mark.png" alt="" width="512" height="432">
+    <div class="gh-group">ラーメンWグループ</div>
+    <div class="gh-tag">福井市内で2店舗</div>
+  </div>
+</section>
+
 <section class="ph-hero">
   <div class="ph-hero-bg"></div>
   <div class="ph-hero-c">
@@ -289,7 +344,7 @@
 <footer>
   <div class="ft-inner">
     <div><div class="ft-logo">RAMEN <span>W</span></div><div class="ft-co">株式会社ノースリバー<br>North River Inc.<br>福井県福井市開発2丁目207</div></div>
-    <div class="ft-col"><h5>Pages</h5><a href="/preview/">RAMEN W 本店</a><a href="/preview/shokudo/">らぁ麺食堂W</a><a href="/preview/company/">会社概要</a><a href="/preview/recruit/">採用情報</a></div>
+    <div class="ft-col"><h5>Pages</h5><a href="/preview/">RAMEN W 本店</a><a href="/preview/shokudo/">らぁ麺食堂W</a><a href="/preview/company/">グループ</a><a href="/preview/recruit/">採用情報</a></div>
     <div class="ft-col"><h5>Follow</h5><a href="https://www.instagram.com/ramen_w_fukui/" target="_blank">Instagram</a><a href="https://x.com/RAMEN_W_FUKUI" target="_blank">X</a><a href="https://lin.ee/8OfLom9" target="_blank">LINE公式</a><a href="https://airrsv.net/ramenw/calendar" target="_blank">ネット予約</a></div>
   </div>
   <div class="ft-btm">&copy; 2025 RAMEN W Group / North River Inc.</div>
