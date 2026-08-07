@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="RAMEN W">
 <meta name="twitter:card" content="summary_large_image">
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Noto+Serif+JP:wght@700;900&family=Zen+Antique+Soft&family=Zen+Old+Mincho:wght@700;900&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Noto+Serif+JP:wght@700;900&family=Zen+Antique+Soft&family=Zen+Old+Mincho:wght@700;900&family=Anton&display=swap');
 
   :root {
     --black: #0e0e0e;
@@ -135,10 +135,12 @@
   /* グループページ(.gh-group)と同じスケール・同じゴシックで揃える。
      読めない人向けのカタカナはふりがなとして上に小さく置く。 */
   .hero-center-yomi{font-size:13px;letter-spacing:7px;color:rgba(255,255,255,0.8);margin-bottom:10px;text-shadow:0 1px 10px rgba(0,0,0,0.85)}
+  /* 英字ロゴは Anton（極太コンデンスド）。日本語ゴシックの英字より
+     字面が詰まり縦に伸びるため「ドンと」が出る。看板やのぼりの骨格に近い。 */
   .hero-center-logo{
-    font-family:'Noto Sans JP',sans-serif;font-weight:900;
-    font-size:clamp(46px,6.4vw,92px);color:var(--white);
-    letter-spacing:2px;text-shadow:0 4px 30px rgba(0,0,0,0.85);
+    font-family:'Anton',sans-serif;font-weight:400;
+    font-size:clamp(52px,7.2vw,104px);color:var(--white);
+    letter-spacing:3px;text-shadow:0 4px 30px rgba(0,0,0,0.85);
     line-height:1;
   }
   .hero-center-logo .w{color:var(--red)}
@@ -336,7 +338,7 @@
     <div class="hero-half-dim"></div>
     <div class="hero-half-c">
       <div class="hero-brand">W オリジナル</div>
-      <div class="hero-name">地鶏<br>中華そば</div>
+      <div class="hero-name">地鶏中華そば</div>
       <div class="hero-desc">博多地鶏のスープに、自家製シルク麺。<br>卵は使っていません。</div>
       <div class="hero-price">¥900</div>
     </div>
@@ -351,7 +353,7 @@
     <div class="hero-half-dim"></div>
     <div class="hero-half-c">
       <div class="hero-brand">W オリジナル</div>
-      <div class="hero-name">昆布水<br>つけ麺</div>
+      <div class="hero-name">昆布水つけ麺</div>
       <div class="hero-desc">昆布水に浸した自家製麺を、<br>そのまま、つけ汁で。</div>
       <div class="hero-price">¥1,050</div>
     </div>
