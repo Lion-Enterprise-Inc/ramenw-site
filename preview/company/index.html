@@ -101,15 +101,18 @@
     .gh-name{font-size:20px}
   }
 
-  .ph-hero{position:relative;min-height:76vh;display:flex;align-items:center;justify-content:center;text-align:center;color:var(--white);overflow:hidden}
-  .ph-hero-bg{position:absolute;inset:0;background:url('/preview/images/noodles.jpg') center/cover;z-index:0}
-  .ph-hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(14,14,14,0.72),rgba(14,14,14,0.86))}
+  /* ヒーロー(暗い写真)の直後に、同じく暗い写真の理念セクションが続くと
+     境界が消えて1枚に見える。理念側を和紙色に反転して切り替わりを作る。
+     こだわりセクションの和紙×墨とも路線が揃う。 */
+  .ph-hero{position:relative;padding:110px 24px 100px;display:flex;align-items:center;justify-content:center;text-align:center;color:var(--text);background:#f4f0e6;border-top:1px solid rgba(0,0,0,0.07);overflow:hidden}
+  .ph-hero-bg{position:absolute;inset:0;background:url('/preview/images/noodles.jpg') center/cover;z-index:0;opacity:0.07}
+  .ph-hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(244,240,230,0.2),rgba(244,240,230,0.6))}
   .ph-hero-c{position:relative;z-index:1;padding:100px 24px 60px}
-  .ph-hero-label{font-size:12px;letter-spacing:6px;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:28px}
+  .ph-hero-label{font-size:12px;letter-spacing:6px;text-transform:uppercase;color:var(--red);font-weight:700;margin-bottom:28px}
   .ph-hero-creed{font-family:'Zen Old Mincho',serif;font-weight:900;font-size:40px;line-height:1.9;letter-spacing:4px}
   .ph-hero-creed span{display:block}
   .ph-hero-creed .red{color:var(--red)}
-  .ph-hero-sub{margin-top:28px;font-size:14px;letter-spacing:3px;color:rgba(255,255,255,0.7)}
+  .ph-hero-sub{margin-top:28px;font-size:14px;letter-spacing:3px;color:#555}
 
   /* MESSAGE (代表挨拶) */
   .msg{display:grid;grid-template-columns:0.85fr 1.15fr;gap:48px;align-items:start}
